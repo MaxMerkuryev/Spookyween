@@ -11,7 +11,6 @@ namespace Ui {
 
 		private const float _clearTime = 0.1f;
 		private float _currentClearTime;
-		//private bool _clear;
 		
 		private static Action<string, string> _updateUi;
 
@@ -29,16 +28,13 @@ namespace Ui {
 			_actionKey.text = actionKey;
 			_actionName.text = actionName;
 			_currentClearTime = Time.time + _clearTime;
-			//_clear = false;
 		}
 
 		private void Clear() {
 			_canvasGroup.alpha = 0f;
-			//_clear = true;
 		}
 		
 		private void Update() {
-			//if (_clear) return;
 			if (Time.time < _currentClearTime) return;
 			Clear();
 		}

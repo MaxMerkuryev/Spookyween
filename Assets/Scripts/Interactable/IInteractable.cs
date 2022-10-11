@@ -2,12 +2,18 @@
 	public interface IInteractable {
 		bool Enabled { get; }
 		string ActionName { get; }
-		ActionType ActionType { get; }
+		InteractionType InteractionType { get; }
+		InteractionKeyType KeyType { get; }
 		void Interact();
 	}
 
-	public enum ActionType {
+	public enum InteractionType {
 		Click,
 		Hold
+	}
+
+	public enum InteractionKeyType {
+		None,
+		Default
 	}
 }

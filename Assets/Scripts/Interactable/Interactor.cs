@@ -1,11 +1,10 @@
-﻿using System;
-using Ui;
+﻿using Ui;
 using UnityEngine;
 
 namespace Interactable {
 	public class Interactor : MonoBehaviour {
 		[SerializeField] private Transform _cameraHolder;
-		private const float _interactionDistance = 5f;
+		private const float _interactionDistance = 3f;
 		private const KeyCode _interactionKey = KeyCode.E;
 		
 		private void Update() {
@@ -15,14 +14,22 @@ namespace Interactable {
 			if (!hit.collider.TryGetComponent(out IInteractable interactable)) return;
 			if (!interactable.Enabled) return;
 			
-			if(GetInteractAction(interactable.ActionType)) interactable.Interact();
-			else InteractionUi.Invoke(_interactionKey.ToString(), interactable.ActionName);
+			if(GetInteractAction(interactable.InteractionType)) interactable.Interact();
+			else InteractionUi.Invoke(GetInteractionKey(interactable.KeyType), interactable.ActionName);
 		}
 
-		private bool GetInteractAction(ActionType type) {
+		private string GetInteractionKey(InteractionKeyType keyType) {
+			return keyType switch {
+				InteractionKeyType.Default => _interactionKey.ToString(),
+				InteractionKeyType.None => string.Empty,
+				_ => string.Empty
+			};
+		}
+		
+		private bool GetInteractAction(InteractionType type) {
 			return type switch {
-				ActionType.Click => Input.GetKeyDown(_interactionKey),
-				ActionType.Hold => Input.GetKey(_interactionKey),
+				InteractionType.Click => Input.GetKeyDown(_interactionKey),
+				InteractionType.Hold => Input.GetKey(_interactionKey),
 				_ => false
 			};
 		}

@@ -10,7 +10,7 @@ namespace Pickupable {
 
 		public Pickupable CurrentPickupable { get; private set; }
 
-		public void Pickup(Pickupable pickupable) {
+		public virtual void Pickup(Pickupable pickupable) {
 			CurrentPickupable?.OnDrop(DropOrientation);
 			CurrentPickupable = pickupable;
 			CurrentPickupable.OnPickup(_container);
@@ -27,7 +27,7 @@ namespace Pickupable {
 			return pickupable != null;
 		}
 
-		public void DropCurrentPickupable() {
+		public virtual void DropCurrentPickupable() {
 			if (!CurrentPickupable) return;
 			CurrentPickupable.OnDrop(DropOrientation);
 			CurrentPickupable = null;

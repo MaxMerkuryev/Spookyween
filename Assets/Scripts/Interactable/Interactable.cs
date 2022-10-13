@@ -12,8 +12,17 @@ namespace InteractableSystem {
 		private LayerMask _outlineLayer => LayerMask.NameToLayer("Outline");
 		private LayerMask _defaultLayer => LayerMask.NameToLayer("Default");
 		
-		public void Select() => gameObject.layer = _outlineLayer;
-		public void DeSelect() => gameObject.layer = _defaultLayer;
+		public void Select() {
+			if (gameObject.layer == _defaultLayer) {
+				gameObject.layer = _outlineLayer;
+			}
+		}
+
+		public void DeSelect() {
+			if (gameObject.layer == _outlineLayer) {
+				gameObject.layer = _defaultLayer;
+			}
+		}
 	}
 
 	public enum InteractionType {

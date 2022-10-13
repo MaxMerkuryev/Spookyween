@@ -18,13 +18,12 @@ namespace InteractableSystem {
 			Ray ray = new(_cameraHolder.position, _cameraHolder.forward);
 			
 			if (!Physics.Raycast(ray, out RaycastHit hit, _interactionDistance)) return;
-			if (!hit.collider.TryGetComponent(out Interactable interactable)) return;
-			if (!interactable.Enabled) return;
+			if (!hit.collider.TryGetComponent(out _currentInteractable)) return;
+			if (!_currentInteractable.Enabled) return;
 
-			_currentInteractable = interactable;
 			_currentInteractable.Select();
-			if(GetInteractAction(interactable.InteractionType)) interactable.Interact();
-			else InteractionUi.Invoke(GetInteractionKey(interactable.KeyType), interactable.ActionName);
+			if(GetInteractAction(_currentInteractable.InteractionType)) _currentInteractable.Interact();
+			else InteractionUi.Invoke(GetInteractionKey(_currentInteractable.KeyType), _currentInteractable.ActionName);
 		}
 
 		private string GetInteractionKey(InteractionKeyType keyType) {

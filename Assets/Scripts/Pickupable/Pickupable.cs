@@ -8,6 +8,10 @@ namespace Pickupable {
 		[SerializeField] private Rigidbody _rigidbody;
 		[SerializeField] private Collider _collider;
 
+		// to avoid wall clipping
+		private LayerMask _pickupableLayer => LayerMask.NameToLayer("Pickupable");
+		private LayerMask _defaultLayer => LayerMask.NameToLayer("Default");
+			
 		public string Name => _name;
 		public PickupableType Type;
 		
@@ -46,6 +50,16 @@ namespace Pickupable {
 			_rigidbody.AddForce(dropOrientation * 5f, ForceMode.Impulse);
 			transform.DOKill();
 			transform.SetParent(null);
+		}
+
+		public void SetPickupableLayer() {
+			Debug.LogError("set " + name);
+			gameObject.layer = _pickupableLayer;
+		}
+
+		public void ResetLayer() {
+			Debug.LogError("reset " + name);
+			gameObject.layer = _defaultLayer;
 		}
 	}
 

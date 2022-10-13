@@ -1,9 +1,9 @@
 ﻿using DG.Tweening;
-using Interactable;
+using InteractableSystem;
 using UnityEngine;
 
 namespace Pickupable {
-	public class Pickupable : MonoBehaviour, IInteractable {
+	public class Pickupable : Interactable {
 		[SerializeField] private string _name;
 		[SerializeField] private Rigidbody _rigidbody;
 		[SerializeField] private Collider _collider;
@@ -11,12 +11,12 @@ namespace Pickupable {
 		public string Name => _name;
 		public PickupableType Type;
 		
-		public bool Enabled { get; private set; } = true; 
-		public string ActionName => $"pick up {_name}";
-		public InteractionType InteractionType => InteractionType.Click;
-		public InteractionKeyType KeyType => InteractionKeyType.Default;
+		public override bool Enabled { get; protected set; } = true; 
+		public override string ActionName => $"pick up {_name}";
+		public override InteractionType InteractionType => InteractionType.Click;
+		public override InteractionKeyType KeyType => InteractionKeyType.Default;
 
-		public void Interact() {
+		public override void Interact() {
 			PickupableHolderPlayer.INSTANCE.Pickup(this);
 		}
 

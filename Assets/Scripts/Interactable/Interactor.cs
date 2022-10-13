@@ -1,19 +1,28 @@
 ﻿using Ui;
 using UnityEngine;
 
-namespace Interactable {
+namespace InteractableSystem {
 	public class Interactor : MonoBehaviour {
 		[SerializeField] private Transform _cameraHolder;
+		[SerializeField] private LayerMask _outlineLayer;
+		[SerializeField] private LayerMask _defaultLayer;
+		
 		private const float _interactionDistance = 3f;
 		private const KeyCode _interactionKey = KeyCode.E;
+
+		private Interactable _currentInteractable;
 		
 		private void Update() {
+			if(_currentInteractable) _currentInteractable.DeSelect();
+			
 			Ray ray = new(_cameraHolder.position, _cameraHolder.forward);
 			
 			if (!Physics.Raycast(ray, out RaycastHit hit, _interactionDistance)) return;
-			if (!hit.collider.TryGetComponent(out IInteractable interactable)) return;
+			if (!hit.collider.TryGetComponent(out Interactable interactable)) return;
 			if (!interactable.Enabled) return;
-			
+
+			_currentInteractable = interactable;
+			_currentInteractable.Select();
 			if(GetInteractAction(interactable.InteractionType)) interactable.Interact();
 			else InteractionUi.Invoke(GetInteractionKey(interactable.KeyType), interactable.ActionName);
 		}

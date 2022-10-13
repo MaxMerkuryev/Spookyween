@@ -1,20 +1,18 @@
-﻿using System;
+﻿using InteractableSystem;
 using UnityEngine;
 
 namespace Pickupable {
-	public abstract class PickupableHolderBase : MonoBehaviour {
+	public abstract class PickupableHolderBase : Interactable {
 		[SerializeField] private Transform _dropOrientaion;
 		[SerializeField] private Transform _container;
 
 		public Vector3 DropOrientation => _dropOrientaion.forward;
-		public event Action<PickupableType> PickupableChanged;
 
 		public Pickupable CurrentPickupable { get; private set; }
 
 		public void Pickup(Pickupable pickupable) {
 			CurrentPickupable?.OnDrop(DropOrientation);
 			CurrentPickupable = pickupable;
-			PickupableChanged?.Invoke(CurrentPickupable.Type);
 			CurrentPickupable.OnPickup(_container);
 		}
 
@@ -33,7 +31,6 @@ namespace Pickupable {
 			if (!CurrentPickupable) return;
 			CurrentPickupable.OnDrop(DropOrientation);
 			CurrentPickupable = null;
-			PickupableChanged?.Invoke(PickupableType.None);
 		}
 	}
 }

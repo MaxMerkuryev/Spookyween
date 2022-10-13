@@ -1,4 +1,6 @@
-﻿using Ui;
+﻿using System;
+using InteractableSystem;
+using Ui;
 using UnityEngine;
 
 namespace Pickupable {
@@ -14,5 +16,12 @@ namespace Pickupable {
 			InteractionUi.Invoke("Q", $"drop {CurrentPickupable.Name}");
 			if (Input.GetKeyDown(_dropKey)) DropCurrentPickupable();
 		}
+
+		// oh, that's bad
+		public override bool Enabled { get; protected set; } = default;
+		public override string ActionName { get; } = default;
+		public override InteractionType InteractionType { get; } = default;
+		public override InteractionKeyType KeyType { get; } = default;
+		public override void Interact() { }
 	}
 }

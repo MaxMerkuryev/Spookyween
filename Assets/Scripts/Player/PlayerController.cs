@@ -32,6 +32,7 @@ namespace Player {
 		private void Awake() {
 			_playerHeight = _playerCollider.height / 2f + _groundCheckRayOffset;
 			_sphereRadius = _playerCollider.radius + _groundCheckSphereOffset;
+			Application.targetFrameRate = 75;
 		}
 
 		private void Start() {

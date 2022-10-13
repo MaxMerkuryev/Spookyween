@@ -1823,6 +1823,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EA_Bld_Tomb_Segment_Moss_1c_PRE
       objectReference: {fileID: 0}
+    - target: {fileID: 1871144889205459755, guid: 676e8a6e6490a9e40942a59a83e93c8f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 676e8a6e6490a9e40942a59a83e93c8f, type: 3}
 --- !u!4 &1333569530 stripped
@@ -2830,6 +2835,11 @@ PrefabInstance:
     - target: {fileID: 1465878375836537268, guid: 501ac1453bb5ef0498debb27427315a0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465878376224699747, guid: 501ac1453bb5ef0498debb27427315a0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1465878376496639176, guid: 501ac1453bb5ef0498debb27427315a0,

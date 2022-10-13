@@ -29,6 +29,9 @@ namespace Player {
 		private float _playerHeight;
 		private float _sphereRadius;
 
+		public bool IsGrounded => _grounded;
+		public float Speed => _player.velocity.magnitude;
+		
 		private void Awake() {
 			_playerHeight = _playerCollider.height / 2f + _groundCheckRayOffset;
 			_sphereRadius = _playerCollider.radius + _groundCheckSphereOffset;

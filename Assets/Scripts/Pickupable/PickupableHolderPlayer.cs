@@ -4,6 +4,7 @@ using UnityEngine;
 namespace Pickupable {
 	public class PickupableHolderPlayer : PickupableHolderBase {
 		public static PickupableHolderBase INSTANCE { get; private set; }
+		
 		private void Awake() => INSTANCE = this;
 
 		private const KeyCode _dropKey = KeyCode.Q;

@@ -50,6 +50,7 @@ namespace Pickupable {
 	}
 
 	public enum PickupableType {
+		None,
 		Ingredient,
 		Potion,
 		Skull,

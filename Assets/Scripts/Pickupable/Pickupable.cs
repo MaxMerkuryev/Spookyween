@@ -27,8 +27,15 @@ namespace Pickupable {
 			_rigidbody.isKinematic = true;
 			_collider.enabled = false;
 			transform.SetParent(parent);
+
+			Vector3[] path = {
+				Vector3.zero, 
+				Vector3.up,
+				Vector3.up / 2f 
+			};
+			
 			transform.DOKill();
-			transform.DOLocalMove(Vector3.zero, 0.3f);
+			transform.DOLocalPath(path, 1f, PathType.CubicBezier).SetEase(Ease.OutBack);
 			transform.DOLocalRotate(Vector3.zero, 0.3f);
 		}
 

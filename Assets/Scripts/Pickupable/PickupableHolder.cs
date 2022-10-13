@@ -9,7 +9,7 @@ namespace Pickupable {
 		
 		private MeshRenderer _hintMeshRenderer;
 		private Sequence _hintSequence;
-		private static readonly int EmissiveColor = Shader.PropertyToID("_EmissiveColor");
+		private static readonly int EmissiveColor = Shader.PropertyToID("_EmissionColor");
 
 		public bool Enabled => true;
 		public InteractionType InteractionType => InteractionType.Click;
@@ -56,12 +56,12 @@ namespace Pickupable {
 			if (_hintMeshRenderer == null) return;
 			if (type == _pickupableType) {
 				_hintSequence = DOTween.Sequence()
-					.Append(_hintMeshRenderer.material
-						.DOColor(new Color(0.6f, 0.3f, 0f, 1f), EmissiveColor, 1f))
+					.Append(_hintMeshRenderer.sharedMaterial
+						.DOColor(new Color(0.6f, 0.3f, 0f, 5f), EmissiveColor, 1f))
 					.SetLoops(-1, LoopType.Yoyo);
 			} else {
 				_hintSequence?.Kill();
-				_hintMeshRenderer.material.SetColor(EmissiveColor, Color.black);
+				_hintMeshRenderer.sharedMaterial.SetColor(EmissiveColor, Color.black);
 			}
 		}
 	}

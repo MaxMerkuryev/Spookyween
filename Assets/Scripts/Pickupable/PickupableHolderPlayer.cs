@@ -32,7 +32,7 @@ namespace Pickupable {
 		
 		public override void DropCurrentPickupable() {
 			_sequence?.Kill();
-			CurrentPickupable.ResetLayer();
+			CurrentPickupable?.ResetLayer();
 			base.DropCurrentPickupable();
 		}
 	

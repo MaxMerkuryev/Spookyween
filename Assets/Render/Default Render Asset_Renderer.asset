@@ -28,6 +28,8 @@ MonoBehaviour:
     normalThreshold: 0.4
     steepAngleThreshold: 0.2
     steepAngleMultiplier: 25
+    Outlines: {fileID: -6465566751694194690, guid: a6b0cfd4a92b1bc478a030e6ce0ccffc,
+      type: 3}
   viewSpaceNormalsTextureSettings:
     colorFormat: 0
     depthBufferBits: 16
@@ -36,6 +38,10 @@ MonoBehaviour:
     perObjectData: 0
     enableDynamicBatching: 0
     enableInstancing: 0
+    ViewSpaceNormals: {fileID: -6465566751694194690, guid: ff7030035b8414c4095a881547508ac3,
+      type: 3}
+    UnlitColor: {fileID: -6465566751694194690, guid: 0371ba5de238be24b8a1791604f646a2,
+      type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

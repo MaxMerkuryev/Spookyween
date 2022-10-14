@@ -53,12 +53,10 @@ namespace Pickupable {
 		}
 
 		public void SetPickupableLayer() {
-			Debug.LogError("set " + name);
 			gameObject.layer = _pickupableLayer;
 		}
 
 		public void ResetLayer() {
-			Debug.LogError("reset " + name);
 			gameObject.layer = _defaultLayer;
 		}
 	}

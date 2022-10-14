@@ -31,6 +31,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
         [Range(0.0f, 500.0f)]
         public float steepAngleMultiplier = 25.0f;
 
+        public Shader Outlines;
     }
 
     [System.Serializable]
@@ -47,6 +48,8 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
         public bool enableDynamicBatching;
         public bool enableInstancing;
 
+        public Shader ViewSpaceNormals;
+        public Shader UnlitColor;
     }
 
     private class ViewSpaceNormalsTexturePass : ScriptableRenderPass {
@@ -75,9 +78,9 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
             };
 
             normals.Init("_SceneViewSpaceNormals");
-            normalsMaterial = new Material(Shader.Find("Hidden/ViewSpaceNormals"));
+            normalsMaterial = new Material(settings.ViewSpaceNormals);
 
-            occludersMaterial = new Material(Shader.Find("Hidden/UnlitColor"));
+            occludersMaterial = new Material(settings.UnlitColor);
             occludersMaterial.SetColor("_Color", normalsTextureSettings.backgroundColor);
         }
 
@@ -135,7 +138,7 @@ public class ScreenSpaceOutlines : ScriptableRendererFeature {
         public ScreenSpaceOutlinePass(RenderPassEvent renderPassEvent, ScreenSpaceOutlineSettings settings) {
             this.renderPassEvent = renderPassEvent;
 
-            screenSpaceOutlineMaterial = new Material(Shader.Find("Hidden/Outlines"));
+            screenSpaceOutlineMaterial = new Material(settings.Outlines);
             screenSpaceOutlineMaterial.SetColor("_OutlineColor", settings.outlineColor);
             screenSpaceOutlineMaterial.SetFloat("_OutlineScale", settings.outlineScale);
 

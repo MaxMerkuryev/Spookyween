@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ada02bb7c02cd094f9a8a3be87301dfc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Pumpkin Spice
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 663de085d2e3469448e55d32973e217c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

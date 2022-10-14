@@ -188,7 +188,6 @@ GameObject:
   - component: {fileID: 4472492031423016584}
   - component: {fileID: 5830152354499299113}
   - component: {fileID: 1046707056664281207}
-  - component: {fileID: 6314832973905906826}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -304,8 +303,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2353d20b942f744f84622adec71bffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _amplitude: 0.01
+  _frequency: 15
+  _camera: {fileID: 4472492031657039619}
   _lookSensitivity: 3
-  _camera: {fileID: 2232431512047281232}
+  _cameraHolder: {fileID: 2232431512047281232}
   _playerCollider: {fileID: 4472492031423016586}
   _groundLayer:
     serializedVersion: 2
@@ -349,22 +351,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dropOrientaion: {fileID: 7679645857111574992}
   _container: {fileID: 5318608813002346720}
---- !u!114 &6314832973905906826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472492031423016585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afeefc7aa9944394a2bd8c3e6edb38cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _amplitude: 0.01
-  _frequency: 15
-  _camera: {fileID: 4472492031657039619}
-  _playerController: {fileID: 4472492031423016584}
 --- !u!1 &4472492031657039630
 GameObject:
   m_ObjectHideFlags: 0

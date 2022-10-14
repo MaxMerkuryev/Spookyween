@@ -1,10 +1,19 @@
+using System;
+using Ui;
 using UnityEngine;
 
 namespace Player {
 	public class PlayerController : MonoBehaviour {
-		[SerializeField] private float _lookSensitivity = 5f;
+		[Header("CAMERA BOB")]
+		[SerializeField] private float _amplitude = 0.01f;
+		[SerializeField] private float _frequency = 15f;
 		[SerializeField] private Transform _camera;
 
+		[Header("LOOK")]
+		[SerializeField] private float _lookSensitivity = 5f;
+		[SerializeField] private Transform _cameraHolder;
+
+		[Header("BODY")]
 		[SerializeField] private CapsuleCollider _playerCollider;
 		[SerializeField] private LayerMask _groundLayer;
 		[SerializeField] private Rigidbody _player;
@@ -15,10 +24,8 @@ namespace Player {
 		[SerializeField] [Range(0f, 1f)] private float _horizontalDrag = 0.15f;
 		[SerializeField] [Range(0f, 1f)] private float _verticalDrag = 0.01f;
 		
-		private const float _groundCheckSphereOffset = 0.05f;
+		private const float _groundCheckSphereOffset = 0.1f;
 		private const float _groundCheckRayOffset = 0.5f;
-		private const float _slopeFactor = 2f;
-		private const float _airSpeedFactor = 3f;
 
 		private Vector3 _movementInput;
 		private Vector3 _cameraInput;
@@ -29,28 +36,64 @@ namespace Player {
 		private float _playerHeight;
 		private float _sphereRadius;
 
-		public bool IsGrounded => _grounded;
-		public float Speed => _player.velocity.magnitude;
+		private bool _locked;
+		
+		private const float _toggleSpeed = 3f;
+		private Vector3 CameraMotion => new() { y = Mathf.Sin(Time.time * _frequency) * _amplitude };
+		private float Speed => _player.velocity.magnitude;
+
 		
 		private void Awake() {
 			_playerHeight = _playerCollider.height / 2f + _groundCheckRayOffset;
-			_sphereRadius = _playerCollider.radius + _groundCheckSphereOffset;
+			_sphereRadius = _playerCollider.radius - _groundCheckSphereOffset;
 			Application.targetFrameRate = 75;
 		}
 
-		private void Start() {
-			Cursor.lockState = CursorLockMode.Locked;
+		private void OnEnable() {
+			PauseMenu.OnShow += Lock;
+			PauseMenu.OnHide += Unlock;
 		}
 
+		private void OnDisable() {
+			PauseMenu.OnShow -= Lock;
+			PauseMenu.OnHide -= Unlock;
+		}
+
+		private void Lock() {
+			_locked = true;
+		}
+
+		private void Unlock() {
+			_locked = false;
+		}
+
+
+		private void MoveCamera() {
+			_camera.localPosition += CameraMotion;
+		}
+
+		private void ResetCamera() {
+			_camera.localPosition = Vector3.Lerp(_camera.localPosition, Vector3.zero, Time.deltaTime);
+		}
+		
 		private void Update() {
+			if(_locked) return;
+			
 			HandleCameraInput();
 			HandleMovementInput();
 			HandleJumpInput();
 
 			RotateCamera();
+			ResetCamera();
+			
+			if (!_grounded) return;
+			if (Speed < _toggleSpeed) return;
+			MoveCamera();
 		}
 
 		private void FixedUpdate() {
+			if(_locked) return;
+			
 			CheckGround();
 			MovePlayer();
 			ApplyAirDrag();
@@ -59,7 +102,7 @@ namespace Player {
 		}
 
 		private void RotateCamera() {
-			_camera.localEulerAngles = _cameraInput;
+			_cameraHolder.localEulerAngles = _cameraInput;
 		}
 		
 		private void HandleCameraInput() {
@@ -70,8 +113,8 @@ namespace Player {
 		}
 		
 		private void HandleMovementInput() {
-			Vector3 forward =  Vector3.ProjectOnPlane(_camera.forward, Vector3.up) * Input.GetAxisRaw("Vertical");
-			Vector3 right = _camera.right * Input.GetAxisRaw("Horizontal");
+			Vector3 forward =  Vector3.ProjectOnPlane(_cameraHolder.forward, Vector3.up) * Input.GetAxisRaw("Vertical");
+			Vector3 right = _cameraHolder.right * Input.GetAxisRaw("Horizontal");
 			_movementInput = (forward + right).normalized;
 		}
 		

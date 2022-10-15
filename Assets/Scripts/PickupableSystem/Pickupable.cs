@@ -16,6 +16,7 @@ namespace PickupableSystem {
 
 		private Vector3 _initialPosition;
 		private Transform _parent;
+		protected virtual Vector3 _customOrientation { get; }
 		
 		public override bool Enabled { get; protected set; } = true; 
 		public override string ActionName => $"pick up {Name}";
@@ -29,10 +30,10 @@ namespace PickupableSystem {
 		}
 
 		public override void Interact() {
-			PickupableHolderPlayer.INSTANCE.Pickup(this);
+			PickupableHolderPlayer.INSTANCE.Pickup(this, useCustomOrientation: true);
 		}
 
-		public void OnPickup(Transform parent, Vector3[] customPath = null) {
+		public void OnPickup(Transform parent, Vector3[] customPath = null, bool useCustomOrientation = false) {
 			Enabled = false;
 			_rigidbody.velocity *= 0f;
 			_rigidbody.angularVelocity *= 0f;
@@ -48,7 +49,7 @@ namespace PickupableSystem {
 			
 			transform.DOKill();
 			transform.DOLocalPath(path, 1f, PathType.CubicBezier).SetEase(Ease.OutBack);
-			transform.DOLocalRotate(Vector3.zero, 0.3f);
+			transform.DOLocalRotate(useCustomOrientation ? _customOrientation : Vector3.zero, 0.3f);
 		}
 
 		public void OnDrop(Vector3 dropOrientation) {
@@ -60,14 +61,16 @@ namespace PickupableSystem {
 			transform.SetParent(null);
 		}
 
-		public void SetPickupableLayer() {
-			gameObject.layer = _pickupableLayer;
+		public void SetPickupableLayer() => SetLayer(transform, _pickupableLayer);
+		public void ResetLayer() => SetLayer(transform, _defaultLayer);
+		
+		private void SetLayer(Transform obj, LayerMask layer) {
+			obj.gameObject.layer = layer;
+			for (int i = 0; i < obj.childCount; i++) {
+				SetLayer(obj.GetChild(i), layer);
+			}
 		}
-
-		public void ResetLayer() {
-			gameObject.layer = _defaultLayer;
-		}
-
+		
 		public void ResetPickupable() {
 			transform.position = _initialPosition;
 			OnDrop(Vector3.zero);

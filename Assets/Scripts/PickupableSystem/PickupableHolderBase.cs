@@ -10,10 +10,10 @@ namespace PickupableSystem {
 
 		public Pickupable CurrentPickupable { get; private set; }
 
-		public virtual void Pickup(Pickupable pickupable, Vector3[] customPath = null) {
+		public virtual void Pickup(Pickupable pickupable, Vector3[] customPath = null, bool useCustomOrientation = false) {
 			DropCurrentPickupable();
 			CurrentPickupable = pickupable;
-			CurrentPickupable.OnPickup(_container, customPath);
+			CurrentPickupable.OnPickup(_container, customPath, useCustomOrientation);
 		}
 
 		public bool TryClaimPickupable(PickupableType type, out Pickupable pickupable) {

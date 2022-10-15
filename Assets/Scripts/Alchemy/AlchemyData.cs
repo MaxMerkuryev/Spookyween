@@ -21,9 +21,9 @@ namespace Alchemy {
 		public static string GetIngredientName(IngredientType type) {
 			return type switch {
 				IngredientType.Eyes => "eyes",
-				IngredientType.BatWing => "bat wing",
-				IngredientType.Spider => "spider",
-				IngredientType.WitchsFinger => "witch's finger",
+				IngredientType.BatWing => "bat wings",
+				IngredientType.Spider => "spiders",
+				IngredientType.WitchsFinger => "witch's fingers",
 				_ => "punsch"
 			};
 		}

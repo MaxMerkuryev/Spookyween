@@ -24,7 +24,7 @@ namespace PickupableSystem {
 		
 			if (current) {
 				DropCurrentPickupable();
-				PickupableHolderPlayer.INSTANCE.Pickup(current);
+				PickupableHolderPlayer.INSTANCE.Pickup(current, useCustomOrientation: true);
 			}
 
 			if (player) {

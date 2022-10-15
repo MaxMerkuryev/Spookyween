@@ -46,8 +46,6 @@ namespace Alchemy {
 			_innerHolderB.Pickup(pickupableB, pathB);
 			PotionType potionType = AlchemyData.GetPotion(pickupableA as Ingredient, pickupableB as Ingredient);
 
-			Debug.LogError($"{(pickupableA as Ingredient).IngredientType} + {(pickupableB as Ingredient).IngredientType} = {potionType}");
-			
 			DOTween.Sequence().InsertCallback(1f, () => {
 				ResetPickupables();
 				CreatePotion(potionType);

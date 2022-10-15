@@ -20,8 +20,8 @@ namespace PickupableSystem {
 			if (Input.GetKeyDown(_dropKey)) DropCurrentPickupable();
 		}
 		
-		public override void Pickup(Pickupable pickupable, Vector3[] customPath = null) {
-			base.Pickup(pickupable, customPath);
+		public override void Pickup(Pickupable pickupable, Vector3[] customPath = null, bool useCustomOrientation = false) {
+			base.Pickup(pickupable, customPath, useCustomOrientation);
 			pickupable.SetPickupableLayer();
 		}
 		

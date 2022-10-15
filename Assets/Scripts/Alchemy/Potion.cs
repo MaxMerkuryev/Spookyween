@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using InteractableSystem;
 using UnityEngine;
 
 namespace Alchemy {
 	public class Potion : Interactable {
 		[SerializeField] private MeshRenderer _mesh;
+		[SerializeField] private ParticleSystem _particles;
 		[SerializeField] private List<PotionConfig> _configs;
 		
 		private PotionType _potionType;
@@ -22,10 +24,15 @@ namespace Alchemy {
 		}
 
 		public void Init(PotionType type) {
+			Vector3 initScale = transform.localScale;
+			transform.localScale = Vector3.zero;
+			transform.DOScale(initScale, 0.3f).SetEase(Ease.OutBack);
+			
 			_potionType = type;
 			PotionConfig config = _configs.Find(c => c.PotionType == type);
 			if(config == null) return;
 			_mesh.material = config.Material;
+			_particles.GetComponent<Renderer>().material = config.Material;
 		}
 	}
 

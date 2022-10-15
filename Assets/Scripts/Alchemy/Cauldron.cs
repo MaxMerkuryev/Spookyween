@@ -8,15 +8,12 @@ namespace Alchemy {
 	public class Cauldron : Interactable {
 		[SerializeField] private PickupableHolder _holderA;
 		[SerializeField] private PickupableHolder _holderB;
-
 		[SerializeField] private PickupableHolder _innerHolderA;
 		[SerializeField] private PickupableHolder _innerHolderB;
-
 		[SerializeField] private Transform _pathHelpPoint;
-		
 		[SerializeField] private Transform _potionSpawn;
-
 		[SerializeField] private Potion _potionPrefab;
+		[SerializeField] private ParticleSystem _createPotionEffect;
 
 		private Potion _currentPotion;
 		
@@ -69,6 +66,7 @@ namespace Alchemy {
 			Potion potion = Instantiate(_potionPrefab, _potionSpawn.position, _potionSpawn.rotation);
 			potion.Init(type);
 			_currentPotion = potion;
+			_createPotionEffect.Play();
 		}
 	}
 }

@@ -15,6 +15,7 @@ namespace PickupableSystem {
 		public abstract PickupableType Type { get; }
 
 		private Vector3 _initialPosition;
+		private Transform _parent;
 		
 		public override bool Enabled { get; protected set; } = true; 
 		public override string ActionName => $"pick up {Name}";
@@ -37,7 +38,7 @@ namespace PickupableSystem {
 			_rigidbody.angularVelocity *= 0f;
 			_rigidbody.isKinematic = true;
 			_collider.enabled = false;
-			transform.SetParent(parent);
+			transform.SetParent(parent, true);
 
 			Vector3[] path = customPath ?? new [] {
 				Vector3.zero, 

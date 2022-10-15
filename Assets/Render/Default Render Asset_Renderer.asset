@@ -22,10 +22,10 @@ MonoBehaviour:
     m_Bits: 0
   outlineSettings:
     outlineColor: {r: 1, g: 1, b: 1, a: 1}
-    outlineScale: 2
-    depthThreshold: 1.5
+    outlineScale: 1
+    depthThreshold: 100
     robertsCrossMultiplier: 100
-    normalThreshold: 0.4
+    normalThreshold: 0.5
     steepAngleThreshold: 0.2
     steepAngleMultiplier: 25
     Outlines: {fileID: -6465566751694194690, guid: a6b0cfd4a92b1bc478a030e6ce0ccffc,

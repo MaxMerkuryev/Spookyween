@@ -15,6 +15,8 @@ namespace PickupableSystem {
 		public abstract PickupableType Type { get; }
 
 		private Vector3 _initialPosition;
+		private Quaternion _initialRotation;
+		
 		private Transform _parent;
 		protected virtual Vector3 _customOrientation { get; }
 		
@@ -25,6 +27,7 @@ namespace PickupableSystem {
 
 		private void Awake() {
 			_initialPosition = transform.position;
+			_initialRotation = transform.rotation;
 			_rigidbody = GetComponent<Rigidbody>();
 			_collider = GetComponent<Collider>();
 		}
@@ -72,7 +75,10 @@ namespace PickupableSystem {
 		}
 		
 		public void ResetPickupable() {
+			_rigidbody.velocity *= 0;
+			_rigidbody.angularVelocity *= 0f;
 			transform.position = _initialPosition;
+			transform.rotation = _initialRotation;
 			OnDrop(Vector3.zero);
 		}
 	}

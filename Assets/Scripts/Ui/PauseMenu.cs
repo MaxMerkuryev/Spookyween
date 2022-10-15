@@ -15,7 +15,7 @@ namespace Ui {
 			_playButton.onClick.AddListener(() => _uiCanvas.SetState(UiCanvas.State.Play));
 
 			// todo main menu 
-			_quitButton.onClick.AddListener(() => {});
+			_quitButton.onClick.AddListener(Application.Quit);
 		}
 
 		public override void Show() {

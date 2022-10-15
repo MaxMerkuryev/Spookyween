@@ -6,7 +6,7 @@ namespace Ui {
 	public class UiCanvas : MonoBehaviour {
 		[SerializeField] private UiMenu _hud;
 		[SerializeField] private UiMenu _pause;
-		
+
 		public enum State {
 			Play,
 			Pause,
@@ -56,7 +56,13 @@ namespace Ui {
 		
 		// i hate switch
 		private void Update() {
-			if (Input.GetKeyDown(KeyCode.BackQuote)) {
+			bool pauseKeyDown = Input.GetKeyDown(KeyCode.Escape);
+
+#if UNITY_EDITOR
+			pauseKeyDown = Input.GetKeyDown(KeyCode.BackQuote); // because... reasons
+#endif
+
+			if (pauseKeyDown) {
 				switch (_currentState) {
 					case State.Play:
 						SetState(State.Pause);

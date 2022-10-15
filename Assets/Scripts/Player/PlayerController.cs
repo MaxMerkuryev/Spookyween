@@ -3,7 +3,7 @@ using Ui;
 using UnityEngine;
 
 namespace Player {
-	public class PlayerController : MonoBehaviour {
+	public class PlayerController : Lockable {
 		[Header("CAMERA BOB")]
 		[SerializeField] private float _amplitude = 0.01f;
 		[SerializeField] private float _frequency = 15f;
@@ -35,8 +35,6 @@ namespace Player {
 
 		private float _playerHeight;
 		private float _sphereRadius;
-
-		private bool _locked;
 		
 		private const float _toggleSpeed = 3f;
 		private Vector3 CameraMotion => new() { y = Mathf.Sin(Time.time * _frequency) * _amplitude };
@@ -49,41 +47,19 @@ namespace Player {
 			Application.targetFrameRate = 75;
 		}
 
-		private void OnEnable() {
-			PauseMenu.OnShow += Lock;
-			PauseMenu.OnHide += Unlock;
-		}
-
-		private void OnDisable() {
-			PauseMenu.OnShow -= Lock;
-			PauseMenu.OnHide -= Unlock;
-		}
-
-		private void Lock() {
-			_locked = true;
-		}
-
-		private void Unlock() {
-			_locked = false;
-		}
-
-
 		private void MoveCamera() {
 			_camera.localPosition += CameraMotion;
 		}
 
 		private void ResetCamera() {
-			_camera.localPosition = Vector3.Lerp(_camera.localPosition, Vector3.zero, Time.deltaTime);
+			_camera.localPosition = Vector3.Lerp(_camera.localPosition, Vector3.zero, 2 * Time.deltaTime);
 		}
 		
-		private void Update() {
-			if(_locked) return;
-			
+		protected override void OnUpdate() {
 			HandleCameraInput();
 			HandleMovementInput();
 			HandleJumpInput();
 
-			RotateCamera();
 			ResetCamera();
 			
 			if (!_grounded) return;
@@ -91,9 +67,7 @@ namespace Player {
 			MoveCamera();
 		}
 
-		private void FixedUpdate() {
-			if(_locked) return;
-			
+		protected override void OnFixedUpdate() {
 			CheckGround();
 			MovePlayer();
 			ApplyAirDrag();
@@ -101,13 +75,17 @@ namespace Player {
 			ApplyJump();
 		}
 
+		protected override void OnLateUpdate() {
+			RotateCamera();
+		}
+
 		private void RotateCamera() {
 			_cameraHolder.localEulerAngles = _cameraInput;
 		}
 		
 		private void HandleCameraInput() {
-			_cameraInput.x -= Input.GetAxisRaw("Mouse Y") * _lookSensitivity;
-			_cameraInput.y += Input.GetAxisRaw("Mouse X") * _lookSensitivity;
+			_cameraInput.x -= Input.GetAxis("Mouse Y") * _lookSensitivity;
+			_cameraInput.y += Input.GetAxis("Mouse X") * _lookSensitivity;
 			
 			_cameraInput.x = Mathf.Clamp(_cameraInput.x, -90f, 90f);
 		}

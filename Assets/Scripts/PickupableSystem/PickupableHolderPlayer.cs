@@ -3,35 +3,29 @@ using InteractableSystem;
 using Ui;
 using UnityEngine;
 
-namespace Pickupable {
-	// oh, that's a bad one, but... "it just works"
+namespace PickupableSystem {
+	// it just works
 	public class PickupableHolderPlayer : PickupableHolderBase {
 		public static PickupableHolderBase INSTANCE { get; private set; }
-
-		private Sequence _sequence;
 
 		private void Awake() {
 			INSTANCE = this;
 		}
 
 		private const KeyCode _dropKey = KeyCode.Q;
-
-		private void Update() {
+		
+		protected override void OnUpdate() {
 			if(!CurrentPickupable) return;
 			InteractionUi.Invoke(_dropKey.ToString(), $"drop {CurrentPickupable.Name}");
 			if (Input.GetKeyDown(_dropKey)) DropCurrentPickupable();
 		}
-
 		
-		public override void Pickup(Pickupable pickupable) {
-			base.Pickup(pickupable);
+		public override void Pickup(Pickupable pickupable, Vector3[] customPath = null) {
+			base.Pickup(pickupable, customPath);
 			pickupable.SetPickupableLayer();
-			_sequence?.Kill();
-			_sequence = DOTween.Sequence();
 		}
 		
 		public override void DropCurrentPickupable() {
-			_sequence?.Kill();
 			CurrentPickupable?.ResetLayer();
 			base.DropCurrentPickupable();
 		}

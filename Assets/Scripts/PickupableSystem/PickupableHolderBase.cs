@@ -1,7 +1,7 @@
 ﻿using InteractableSystem;
 using UnityEngine;
 
-namespace Pickupable {
+namespace PickupableSystem {
 	public abstract class PickupableHolderBase : Interactable {
 		[SerializeField] private Transform _dropOrientaion;
 		[SerializeField] private Transform _container;
@@ -10,10 +10,10 @@ namespace Pickupable {
 
 		public Pickupable CurrentPickupable { get; private set; }
 
-		public virtual void Pickup(Pickupable pickupable) {
+		public virtual void Pickup(Pickupable pickupable, Vector3[] customPath = null) {
 			DropCurrentPickupable();
 			CurrentPickupable = pickupable;
-			CurrentPickupable.OnPickup(_container);
+			CurrentPickupable.OnPickup(_container, customPath);
 		}
 
 		public bool TryClaimPickupable(PickupableType type, out Pickupable pickupable) {

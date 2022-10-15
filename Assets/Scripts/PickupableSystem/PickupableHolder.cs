@@ -3,7 +3,7 @@ using DG.Tweening;
 using InteractableSystem;
 using UnityEngine;
 
-namespace Pickupable {
+namespace PickupableSystem {
 	public class PickupableHolder : PickupableHolderBase {
 		[SerializeField] private PickupableType _pickupableType;
 

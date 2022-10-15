@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Ui;
+using UnityEngine;
 
 namespace InteractableSystem {
-	public abstract class Interactable : MonoBehaviour {
+	public abstract class Interactable : Lockable {
 		public abstract bool Enabled { get; protected set; }
 		public abstract string ActionName { get; }
 		public abstract InteractionType InteractionType { get; }
@@ -27,7 +28,7 @@ namespace InteractableSystem {
 
 	public enum InteractionType {
 		Click,
-		Hold
+		Hold // dunno what for :)
 	}
 
 	public enum InteractionKeyType {

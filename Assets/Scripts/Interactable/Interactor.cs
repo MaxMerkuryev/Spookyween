@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace InteractableSystem {
-	public class Interactor : MonoBehaviour {
+	public class Interactor : Lockable {
 		[SerializeField] private Transform _cameraHolder;
 		[SerializeField] private LayerMask _outlineLayer;
 		[SerializeField] private LayerMask _defaultLayer;
@@ -12,7 +12,7 @@ namespace InteractableSystem {
 
 		private Interactable _currentInteractable;
 		
-		private void Update() {
+		protected override void OnUpdate() {
 			if(_currentInteractable) _currentInteractable.DeSelect();
 			
 			Ray ray = new(_cameraHolder.position, _cameraHolder.forward);

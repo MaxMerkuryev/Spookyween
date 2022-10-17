@@ -24,7 +24,7 @@ namespace Player {
 		[SerializeField] [Range(0f, 1f)] private float _horizontalDrag = 0.15f;
 		[SerializeField] [Range(0f, 1f)] private float _verticalDrag = 0.01f;
 		
-		private const float _groundCheckSphereOffset = 0.1f;
+		private const float _groundCheckSphereOffset = 0.2f;
 		private const float _groundCheckRayOffset = 0.5f;
 
 		private Vector3 _movementInput;
@@ -38,7 +38,7 @@ namespace Player {
 		
 		private const float _toggleSpeed = 3f;
 		private Vector3 CameraMotion => new() { y = Mathf.Sin(Time.time * _frequency) * _amplitude };
-		private float Speed => _player.velocity.magnitude;
+		private float HorizontalSpeed => new Vector3(_player.velocity.x,0f, _player.velocity.z).magnitude;
 
 		
 		private void Awake() {
@@ -63,7 +63,7 @@ namespace Player {
 			ResetCamera();
 			
 			if (!_grounded) return;
-			if (Speed < _toggleSpeed) return;
+			if (HorizontalSpeed < _toggleSpeed) return;
 			MoveCamera();
 		}
 

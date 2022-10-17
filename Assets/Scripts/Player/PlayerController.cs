@@ -35,7 +35,8 @@ namespace Player {
 
 		private float _playerHeight;
 		private float _sphereRadius;
-		
+		private float _gravityFactor = 1f;
+
 		private const float _toggleSpeed = 3f;
 		private Vector3 CameraMotion => new() { y = Mathf.Sin(Time.time * _frequency) * _amplitude };
 		private float HorizontalSpeed => new Vector3(_player.velocity.x,0f, _player.velocity.z).magnitude;
@@ -119,7 +120,7 @@ namespace Player {
 		
 		private void ApplyGravity() {
 			if (_grounded) return;
-			_player.velocity += Vector3.down * _gravity;
+			_player.velocity += Vector3.down * (_gravity * _gravityFactor);
 		}
 
 		private void ApplyJump() {
@@ -132,6 +133,15 @@ namespace Player {
 			if (!_grounded) return;
 			if (!Input.GetKeyDown(KeyCode.Space)) return;
 			_jumped = true;
+		}
+
+		public void EnablePumpkinEffect() {
+			_gravityFactor = 0.1f;
+			_jumped = true;
+		}
+
+		public void DisablePumpkinEffect() {
+			_gravityFactor = 1f;
 		}
 	}
 }

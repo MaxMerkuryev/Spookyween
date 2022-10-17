@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 4472492031423016584}
   - component: {fileID: 5830152354499299113}
   - component: {fileID: 1046707056664281207}
+  - component: {fileID: 5830152354071530108}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -268,7 +269,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4472492031423016585}
-  m_Material: {fileID: 13400000, guid: 5523a52e871debc408234c202e239f0b, type: 2}
+  m_Material: {fileID: 13400000, guid: 3d58c1054cab53944a15feb104809d83, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -313,8 +314,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   _player: {fileID: 4472492031423016587}
-  _speed: 5
-  _jumpForce: 15
+  _speed: 3
+  _jumpForce: 10
   _gravity: 1
   _horizontalDrag: 0.3
   _verticalDrag: 0.01
@@ -351,6 +352,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dropOrientaion: {fileID: 7679645857111574992}
   _container: {fileID: 5318608813002346720}
+--- !u!114 &5830152354071530108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4472492031423016585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abcde70cceab46de9ac9884351cb585e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 4472492031423016584}
 --- !u!1 &4472492031657039630
 GameObject:
   m_ObjectHideFlags: 0

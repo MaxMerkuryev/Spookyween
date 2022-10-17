@@ -1,8 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 namespace Alchemy {
 	public class PotionEffectController : MonoBehaviour {
+		[SerializeField] private VolumeProfile _postProcessing;
+		[SerializeField] private List<PotionEffect> _effects = new List<PotionEffect>();
+		
 		public static PotionEffectController INSTANCE;
 		
 		public event Action<PotionType> OnDrink;
@@ -11,8 +19,9 @@ namespace Alchemy {
 
 		private bool _workin;
 		private float _currentTime;
-		private PotionType _currentPotionType;
-
+		private PotionEffect _currentPotionEffect;
+		private ColorAdjustments _colorAdjustments;		
+		
 		private float CurrentTime {
 			get => _currentTime;
 			set {
@@ -23,22 +32,31 @@ namespace Alchemy {
 
 		private void Awake() {
 			INSTANCE = this;
+			_postProcessing.TryGet(out _colorAdjustments);
 		}
 
 		public void Drink(PotionType type) {
 			if (_workin) End();
-			_currentPotionType = type;
-			CurrentTime = GetPotionTime(type);
+			_workin = true;
+			_currentPotionEffect = _effects.FirstOrDefault(e => e.Type == type);
+			CurrentTime = _currentPotionEffect.Duration;
+			DOVirtual.Color(_colorAdjustments.colorFilter.value, _currentPotionEffect.ColorFilter, 1f, color => {
+				_colorAdjustments.colorFilter.Override(color);
+			}).SetEase(Ease.OutCirc);
 			OnDrink?.Invoke(type);
 		}
 
 		private void End() {
 			_workin = false;
 			CurrentTime = 0;
-			OnEnd?.Invoke(_currentPotionType);
+			DOVirtual.Color(_colorAdjustments.colorFilter.value, Color.white, 1f, color => {
+				_colorAdjustments.colorFilter.Override(color);
+			}).SetEase(Ease.OutCirc);
+			OnEnd?.Invoke(_currentPotionEffect.Type);
 		}
 		
 		private void Update() {
+			if(!_workin) return;
 			if (CurrentTime <= 0f) {
 				CurrentTime = 0f;
 				if (_workin) {
@@ -49,17 +67,14 @@ namespace Alchemy {
 
 			CurrentTime -= Time.deltaTime;
 		}
+	}
 
-		private float GetPotionTime(PotionType type) {
-			return type switch {
-				PotionType.PumpkinJuice => 5f,
-				PotionType.VampireBlood => 30f,
-				PotionType.GhostBreath => 30f,
-				PotionType.Poison => 5f,
-				PotionType.WitchsBrew => 15f,
-				PotionType.Hypnosis => 15f,
-				_ => 0f
-			};
-		}
+	[Serializable]
+	public struct PotionEffect {
+		public PotionType Type;
+		public float Duration;
+		
+		[ColorUsage(true, true)]
+		public Color ColorFilter;
 	}
 }

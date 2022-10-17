@@ -88,6 +88,7 @@ namespace PickupableSystem {
 		Ingredient,
 		Potion,
 		Skull,
-		Pumpkin
+		Pumpkin,
+		Aspen
 	}
 }

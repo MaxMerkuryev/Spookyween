@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
 namespace SpookifySystem {
 	public class Spookify : MonoBehaviour {
@@ -10,18 +8,29 @@ namespace SpookifySystem {
 		[SerializeField] private AudioClip _ambience;
 		[SerializeField] private AudioClip[] _lofi;
 
+		public bool IsOn { get; private set; }
+		
 		private void Awake() {
 			_ambienceSource.clip = _ambience;
 			_ambienceSource.loop = true;
 			_ambienceSource.Play();
-			
-			PlayLofi();
 		}
 
-		private void PlayLofi() {
+		public void Play() {
+			IsOn = true;
 			_lofiSource.clip = _lofi[Random.Range(0, _lofi.Length)];
 			_lofiSource.Play();
-			Invoke(nameof(PlayLofi), _lofiSource.clip.length + Random.Range(1f, 5f));
+			Invoke(nameof(Play), _lofiSource.clip.length + Random.Range(1f, 5f));
+		}
+
+		public void Stop() {
+			IsOn = false;
+			_lofiSource.Stop();
+		}
+		
+		public void NextClip() {
+			Stop();
+			Play();
 		}
 	}
 }

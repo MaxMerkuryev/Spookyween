@@ -19,6 +19,7 @@ namespace PickupableSystem {
 		
 		private Transform _parent;
 		protected virtual Vector3 _customOrientation { get; }
+		protected virtual Vector3 _offset { get; }
 		
 		public override bool Enabled { get; protected set; } = true; 
 		public override string ActionName => $"pick up {Name}";
@@ -45,10 +46,12 @@ namespace PickupableSystem {
 			transform.SetParent(parent, true);
 
 			Vector3[] path = customPath ?? new [] {
-				Vector3.zero, 
+				Vector3.zero + _offset, 
 				Vector3.up,
 				Vector3.up / 2f 
 			};
+
+			if (customPath != null) customPath[0] += _offset;
 			
 			transform.DOKill();
 			transform.DOLocalPath(path, 1f, PathType.CubicBezier).SetEase(Ease.OutBack);

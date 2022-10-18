@@ -20,7 +20,7 @@ namespace Alchemy {
 		private bool _workin;
 		private float _currentTime;
 		private PotionEffect _currentPotionEffect;
-		private ColorAdjustments _colorAdjustments;		
+		private Vignette _colorAdjustments;		
 		
 		private float CurrentTime {
 			get => _currentTime;
@@ -33,11 +33,11 @@ namespace Alchemy {
 		private void Awake() {
 			INSTANCE = this;
 			_postProcessing.TryGet(out _colorAdjustments);
-			_colorAdjustments.colorFilter.Override(Color.white);
+			_colorAdjustments.color.Override(Color.white);
 		}
 
 		private void OnDestroy() {
-			_colorAdjustments.colorFilter.Override(Color.white);
+			_colorAdjustments.color.Override(Color.white);
 		}
 
 		public void Drink(PotionType type) {
@@ -45,8 +45,8 @@ namespace Alchemy {
 			_workin = true;
 			_currentPotionEffect = _effects.FirstOrDefault(e => e.Type == type);
 			CurrentTime = _currentPotionEffect.Duration;
-			DOVirtual.Color(_colorAdjustments.colorFilter.value, _currentPotionEffect.ColorFilter, 1f, color => {
-				_colorAdjustments.colorFilter.Override(color);
+			DOVirtual.Color(_colorAdjustments.color.value, _currentPotionEffect.ColorFilter, 1f, color => {
+				_colorAdjustments.color.Override(color);
 			}).SetEase(Ease.OutCirc);
 			OnDrink?.Invoke(type);
 		}
@@ -54,8 +54,8 @@ namespace Alchemy {
 		private void End() {
 			_workin = false;
 			CurrentTime = 0;
-			DOVirtual.Color(_colorAdjustments.colorFilter.value, Color.white, 1f, color => {
-				_colorAdjustments.colorFilter.Override(color);
+			DOVirtual.Color(_colorAdjustments.color.value, Color.white, 1f, color => {
+				_colorAdjustments.color.Override(color);
 			}).SetEase(Ease.OutCirc);
 			OnEnd?.Invoke(_currentPotionEffect.Type);
 		}

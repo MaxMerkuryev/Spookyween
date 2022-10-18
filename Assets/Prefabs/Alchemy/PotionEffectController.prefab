@@ -52,3 +52,6 @@ MonoBehaviour:
   - Type: 3
     Duration: 10
     ColorFilter: {r: 0, g: 2, b: 0.039215688, a: 1}
+  - Type: 1
+    Duration: 30
+    ColorFilter: {r: 2, g: 0, b: 0, a: 0.36862746}

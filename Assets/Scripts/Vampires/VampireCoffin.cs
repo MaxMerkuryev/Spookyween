@@ -20,13 +20,13 @@ namespace Vampires {
 		public void Open() {
 			if(_sirDracula.Dead) return;
 			_opened = true;
-			_cap.DOLocalRotate(new Vector3(0f, 0f, -180f), 1f).SetEase(Ease.OutCirc);
+			_cap.DOLocalRotate(new Vector3(0f, -187.627f, 180f), 1f).SetEase(Ease.OutCirc);
 		}
 
 		public void Close() {
 			if(_sirDracula.Dead) return;
 			_opened = false;
-			_cap.DOLocalRotate(new Vector3(0f, 0f, 360f), 1f).SetEase(Ease.OutCirc);
+			_cap.DOLocalRotate(new Vector3(0f, -187.627f, 0f), 1f).SetEase(Ease.OutCirc);
 		}
 
 		public override void Pickup(Pickupable pickupable, Vector3[] customPath = null, bool useCustomOrientation = false) {

@@ -42,5 +42,14 @@ namespace Vampires {
 				_target.Open();
 			}
 		}
+
+		private void Update() {
+			if (Input.GetKeyDown(KeyCode.R)) {
+				OnPotionDrinkAction();
+			}
+			if (Input.GetKeyDown(KeyCode.T)) {
+				OnPotionEndAction();
+			}
+		}
 	}
 }

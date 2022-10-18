@@ -4,12 +4,14 @@ namespace Vampires {
 	public class Vampire : MonoBehaviour {
 		[SerializeField] private VampireEyeball[] _eyes;
 		[SerializeField] private ParticleSystem _blood;
+		[SerializeField] private ParticleSystem _flame;
 
 		public bool Dead { get; private set; }
 		
 		public void Die() {
 			Dead = true;
 			_blood.Play();
+			_flame.gameObject.SetActive(true);
 			foreach (VampireEyeball eye in _eyes) eye.SetDead();
 		}
 

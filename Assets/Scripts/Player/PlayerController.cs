@@ -38,6 +38,8 @@ namespace Player {
 		private float _poisonFactor = 0f;
 
 		private const float _toggleSpeed = 3f;
+
+		public static Vector3 CAMERA_POSITION;
 		
 		private Vector3 CameraMotion => new() {
 			y = _poisonFactor > 0 ? 0f : Mathf.Sin(Time.time * _frequency) * _amplitude,
@@ -76,6 +78,7 @@ namespace Player {
 
 			ResetCamera();
 			MoveCamera();
+			CAMERA_POSITION = _cameraHolder.position;
 		}
 
 		protected override void OnFixedUpdate() {

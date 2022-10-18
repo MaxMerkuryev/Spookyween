@@ -1,4 +1,3 @@
-using System;
 using Ui;
 using UnityEngine;
 
@@ -36,9 +35,15 @@ namespace Player {
 		private float _playerHeight;
 		private float _sphereRadius;
 		private float _gravityFactor = 1f;
+		private float _poisonFactor = 0f;
 
 		private const float _toggleSpeed = 3f;
-		private Vector3 CameraMotion => new() { y = Mathf.Sin(Time.time * _frequency) * _amplitude };
+		
+		private Vector3 CameraMotion => new() {
+			y = _poisonFactor > 0 ? 0f : Mathf.Sin(Time.time * _frequency) * _amplitude,
+			x = _poisonFactor * (Mathf.Cos(Time.time * _frequency / 3f) * _amplitude / 2f)
+		};
+		
 		private float HorizontalSpeed => new Vector3(_player.velocity.x,0f, _player.velocity.z).magnitude;
 
 		
@@ -49,6 +54,14 @@ namespace Player {
 		}
 
 		private void MoveCamera() {
+			if (_poisonFactor > 0f) {
+				_camera.localPosition += CameraMotion * (HorizontalSpeed + 1f);
+				_camera.localRotation = Quaternion.Euler(_camera.localPosition * HorizontalSpeed * 2f);
+				return;
+			}
+			
+			if (!_grounded) return;
+			if (HorizontalSpeed < _toggleSpeed) return;
 			_camera.localPosition += CameraMotion;
 		}
 
@@ -62,9 +75,6 @@ namespace Player {
 			HandleJumpInput();
 
 			ResetCamera();
-			
-			if (!_grounded) return;
-			if (HorizontalSpeed < _toggleSpeed) return;
 			MoveCamera();
 		}
 
@@ -135,6 +145,8 @@ namespace Player {
 			_jumped = true;
 		}
 
+		
+		// "Yeah, yeah, fuck me" - Open Closed Principle
 		public void EnablePumpkinEffect() {
 			_gravityFactor = 0.1f;
 			_jumped = true;
@@ -142,6 +154,14 @@ namespace Player {
 
 		public void DisablePumpkinEffect() {
 			_gravityFactor = 1f;
+		}
+
+		public void EnablePoisonEffect() {
+			_poisonFactor = 1f;
+		}
+
+		public void DisablePoisonEffect() {
+			_poisonFactor = 0f;
 		}
 	}
 }

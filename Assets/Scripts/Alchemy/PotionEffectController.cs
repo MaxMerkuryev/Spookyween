@@ -33,6 +33,11 @@ namespace Alchemy {
 		private void Awake() {
 			INSTANCE = this;
 			_postProcessing.TryGet(out _colorAdjustments);
+			_colorAdjustments.colorFilter.Override(Color.white);
+		}
+
+		private void OnDestroy() {
+			_colorAdjustments.colorFilter.Override(Color.white);
 		}
 
 		public void Drink(PotionType type) {

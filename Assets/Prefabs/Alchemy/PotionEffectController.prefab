@@ -47,5 +47,8 @@ MonoBehaviour:
   _postProcessing: {fileID: 11400000, guid: 061a23e5734d98b4ca830ad328ce4d0d, type: 2}
   _effects:
   - Type: 0
-    Duration: 2.5
+    Duration: 2
     ColorFilter: {r: 5.3403134, g: 2.4110017, b: 1.1335572, a: 1}
+  - Type: 3
+    Duration: 10
+    ColorFilter: {r: 0, g: 2, b: 0.039215688, a: 1}

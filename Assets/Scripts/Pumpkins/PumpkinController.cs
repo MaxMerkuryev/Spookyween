@@ -13,10 +13,10 @@ namespace Pumpkins {
 		}
 
 		private void OnPickup() {
-			if (_holders.Any(pumpkinHolder => pumpkinHolder.CurrentPickupable == null)) {
+			if (_holders.Any(t => !t.Correct)) {
 				return;
 			}
-			
+
 			Debug.LogError("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		}
 	}

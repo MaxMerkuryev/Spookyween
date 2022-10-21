@@ -1,4 +1,5 @@
 using Ui;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Player {
@@ -58,7 +59,8 @@ namespace Player {
 		private void MoveCamera() {
 			if (_poisonFactor > 0f) {
 				_camera.localPosition += CameraMotion * (HorizontalSpeed + 1f);
-				_camera.localRotation = Quaternion.Euler(_camera.localPosition * HorizontalSpeed * 2f);
+				Vector3 rot = new Vector3(CameraMotion.x + CameraMotion.y, CameraMotion.x - CameraMotion.y, -CameraMotion.x - CameraMotion.y) * 10000f;
+				_camera.localRotation = Quaternion.Slerp(_camera.localRotation, Quaternion.Euler(rot), 1f * Time.deltaTime);
 				return;
 			}
 			
@@ -68,7 +70,10 @@ namespace Player {
 		}
 
 		private void ResetCamera() {
-			_camera.localPosition = Vector3.Lerp(_camera.localPosition, Vector3.zero, 2 * Time.deltaTime);
+			_camera.localPosition = Vector3.Lerp(_camera.localPosition, Vector3.zero, 20 * Time.deltaTime);
+			
+			if(_poisonFactor > 0)return;
+			_camera.localRotation = Quaternion.identity;
 		}
 		
 		protected override void OnUpdate() {
@@ -94,7 +99,8 @@ namespace Player {
 		}
 
 		private void RotateCamera() {
-			_cameraHolder.localEulerAngles = _cameraInput;
+			float t = _poisonFactor > 0 ? 5f : 15f;
+			_cameraHolder.rotation = Quaternion.Slerp(_cameraHolder.rotation, Quaternion.Euler(_cameraInput.x, _cameraInput.y, 0f), t * Time.deltaTime);
 		}
 		
 		private void HandleCameraInput() {
@@ -132,7 +138,7 @@ namespace Player {
 		}
 		
 		private void ApplyGravity() {
-			if (_grounded) return;
+			//if (_grounded) return;
 			_player.velocity += Vector3.down * (_gravity * _gravityFactor);
 		}
 

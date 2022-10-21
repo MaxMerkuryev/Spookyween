@@ -52,7 +52,7 @@ namespace Alchemy {
 		GhostBreath,
 		Poison,
 		WitchsBrew,
-		Hypnosis
+		Hypnosis // ♥ I love Tardigrade Inferno ♥
 	}
 
 	public enum IngredientType {

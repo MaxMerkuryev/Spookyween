@@ -90,7 +90,7 @@ namespace PickupableSystem {
 		None,
 		Ingredient,
 		Potion,
-		Skull,
+		Skeleton,
 		Pumpkin,
 		Aspen
 	}

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Vampires {
 	public class VampireEyeball : MonoBehaviour {

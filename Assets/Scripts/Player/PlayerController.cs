@@ -99,7 +99,7 @@ namespace Player {
 		}
 
 		private void RotateCamera() {
-			float t = _poisonFactor > 0 ? 5f : 15f;
+			float t = _poisonFactor > 0 ? 5f : 25f;
 			_cameraHolder.rotation = Quaternion.Slerp(_cameraHolder.rotation, Quaternion.Euler(_cameraInput.x, _cameraInput.y, 0f), t * Time.deltaTime);
 		}
 		

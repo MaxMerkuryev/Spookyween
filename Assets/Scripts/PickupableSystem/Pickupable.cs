@@ -92,6 +92,7 @@ namespace PickupableSystem {
 		Potion,
 		Skeleton,
 		Pumpkin,
-		Aspen
+		Aspen,
+		Torch
 	}
 }

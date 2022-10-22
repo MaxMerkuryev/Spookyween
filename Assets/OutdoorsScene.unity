@@ -130498,13 +130498,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
         type: 3}
+      propertyPath: _effects.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
+        type: 3}
+      propertyPath: _effects.Array.data[5].Type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
+        type: 3}
+      propertyPath: _effects.Array.data[1].Duration
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
+        type: 3}
       propertyPath: _effects.Array.data[2].Duration
-      value: 5
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
         type: 3}
       propertyPath: _effects.Array.data[4].Duration
-      value: 30
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
+        type: 3}
+      propertyPath: _effects.Array.data[5].Duration
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
+        type: 3}
+      propertyPath: _effects.Array.data[5].ColorFilter.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
+        type: 3}
+      propertyPath: _effects.Array.data[5].ColorFilter.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
+        type: 3}
+      propertyPath: _effects.Array.data[5].ColorFilter.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
+        type: 3}
+      propertyPath: _effects.Array.data[5].ColorFilter.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6072f64ea3649ec40b84c9fcdf8c989c, type: 3}

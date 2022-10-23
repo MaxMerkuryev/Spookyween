@@ -14,7 +14,6 @@ namespace Wispers {
 		public void Init(int index, Action<int> action) {
 			_index = index;
 			_onTrigger = action;
-			Disable();
 		}
 		
 		private void OnTriggerEnter(Collider other) {

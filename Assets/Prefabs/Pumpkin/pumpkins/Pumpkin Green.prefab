@@ -11,16 +11,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1e5fca8459a4f3642a611939b5392231, type: 2}
+      objectReference: {fileID: 2100000, guid: 15b57e030cd620648b9afe01b15f06e0, type: 2}
     - target: {fileID: 3703301283459321974, guid: 203da289347500a40a58ead2aa2f9b5f,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 1e5fca8459a4f3642a611939b5392231, type: 2}
+      objectReference: {fileID: 2100000, guid: 15b57e030cd620648b9afe01b15f06e0, type: 2}
     - target: {fileID: 3912661928116245038, guid: 203da289347500a40a58ead2aa2f9b5f,
         type: 3}
       propertyPath: m_Name
-      value: Pumpkin Purple
+      value: Pumpkin Green
       objectReference: {fileID: 0}
     - target: {fileID: 3912661928116735502, guid: 203da289347500a40a58ead2aa2f9b5f,
         type: 3}
@@ -30,17 +30,17 @@ PrefabInstance:
     - target: {fileID: 3912661928116735502, guid: 203da289347500a40a58ead2aa2f9b5f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 9.1
       objectReference: {fileID: 0}
     - target: {fileID: 3912661928116735502, guid: 203da289347500a40a58ead2aa2f9b5f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.42
       objectReference: {fileID: 0}
     - target: {fileID: 3912661928116735502, guid: 203da289347500a40a58ead2aa2f9b5f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 43.363163
       objectReference: {fileID: 0}
     - target: {fileID: 3912661928116735502, guid: 203da289347500a40a58ead2aa2f9b5f,
         type: 3}
@@ -81,6 +81,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1e5fca8459a4f3642a611939b5392231, type: 2}
+      objectReference: {fileID: 2100000, guid: 15b57e030cd620648b9afe01b15f06e0, type: 2}
+    - target: {fileID: 8812322089998268012, guid: 203da289347500a40a58ead2aa2f9b5f,
+        type: 3}
+      propertyPath: _pumpkinType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 203da289347500a40a58ead2aa2f9b5f, type: 3}

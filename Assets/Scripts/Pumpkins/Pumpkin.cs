@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Pumpkins {
 	public class Pumpkin : Pickupable {
+		[SerializeField] private ParticleSystem _particles;
 		[SerializeField] private PumpkinType _pumpkinType;
 		public PumpkinType PumpkinType => _pumpkinType;
 		

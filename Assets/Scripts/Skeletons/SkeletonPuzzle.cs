@@ -3,28 +3,13 @@ using CommonPuzzle;
 using UnityEngine;
 
 namespace Skeletons {
-	public class SkeletonPuzzle : PotionEffectReceiver {
+	public class SkeletonPuzzle : PuzzleBase {
 		[SerializeField] private PuzzleTarget _target;
 		[SerializeField] private Skeleton[] _skeletons;
 
 		private int _count;
 		
-		public bool Active { get; private set; }
-		
 		protected override PotionType _potionType => PotionType.Hypnosis;
-		
-		protected override void OnPotionDrinkAction() {
-			Active = true;
-		}
-
-		protected override void OnPotionEndAction() {
-			Active = false;
-			foreach (Skeleton skeleton in _skeletons) {
-				skeleton.DeHypnotize();
-			}
-
-			_count = 0;
-		}
 
 		public void SkeletonHypnotized() {
 			_count++;

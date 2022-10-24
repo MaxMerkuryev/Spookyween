@@ -8,7 +8,6 @@ namespace Skeletons {
 		[SerializeField] private SkeletonType _skeletonType;
 		[SerializeField] private GameObject _boney;
 		[SerializeField] private VampireEyeball[] _eyes;
-		[SerializeField] private GameObject _light;
 
 		public override string ActionName => "skeleton";
 		public override InteractionType InteractionType => InteractionType.Click;
@@ -22,7 +21,7 @@ namespace Skeletons {
 			if (_hypnotized) return;
 			
 			if (CurrentPickupable) {
-				if(_puzzle.Active) Hypnotize();
+				if(_puzzle.IsActive) Hypnotize();
 				return;
 			}
 			
@@ -35,7 +34,6 @@ namespace Skeletons {
 		}
 
 		public void Hypnotize() {
-			_light.SetActive(true);
 			_hypnotized = true;
 			_puzzle.SkeletonHypnotized();
 			foreach (VampireEyeball eye in _eyes) {
@@ -43,16 +41,7 @@ namespace Skeletons {
 			}
 		}
 
-		public void DeHypnotize() {
-			_light.SetActive(false);
-			_hypnotized = false;
-			foreach (VampireEyeball eye in _eyes) {
-				eye.SetDefault();
-			}
-		}
-
 		public void Die() {
-			_light.SetActive(false);
 			gameObject.SetActive(false);
 			CurrentPickupable?.gameObject.SetActive(false);
 			_boney.SetActive(true);

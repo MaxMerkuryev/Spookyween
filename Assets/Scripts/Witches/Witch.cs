@@ -10,29 +10,25 @@ namespace Witches {
 		[SerializeField] private ParticleSystem _particles;
 		[SerializeField] private VampireEyeball[] _eyes;
 
-		private void Awake() {
-			Enabled = false;
-		}
+		private WitchsPuzzle _witchsPuzzle;
 
-		public void Activate() {
-			if(CurrentPickupable) return;
-			Enabled = true;
-		}
-
-		public void Deactivate() {
-			Enabled = false;
+		public void Init(WitchsPuzzle witchsPuzzle) {
+			_witchsPuzzle = witchsPuzzle;
 		}
 
 		public override void Pickup(Pickupable pickupable, Vector3[] customPath = null, bool useCustomOrientation = false) {
+			if(!_witchsPuzzle.IsActive) return;
+			
 			base.Pickup(pickupable, customPath, useCustomOrientation);
 			Enabled = false;
-			DOTween.Sequence().InsertCallback(0.5f, () => {
+			DOTween.Sequence().InsertCallback(0.3f, () => {
 				_fire.SetActive(true);
 				_particles.Stop();
 				foreach (VampireEyeball vampireEyeball in _eyes) {
 					vampireEyeball.SetDead();
 				}
 				CurrentPickupable.gameObject.SetActive(false);
+				_witchsPuzzle.OnWitchFire();
 			});
 		}
 	}

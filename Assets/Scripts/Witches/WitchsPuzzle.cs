@@ -1,18 +1,27 @@
 ﻿using Alchemy;
+using CommonPuzzle;
 using UnityEngine;
 
 namespace Witches {
-	public class WitchsPuzzle : PotionEffectReceiver {
+	public class WitchsPuzzle : PuzzleBase {
+		[SerializeField] private PuzzleTarget _target;
 		[SerializeField] private Witch[] _witches;
 
 		protected override PotionType _potionType => PotionType.WitchsBrew;
+
+		private int count = 0;
 		
-		protected override void OnPotionDrinkAction() {
-			foreach (Witch witch in _witches) witch.Activate();
+		private void Awake() {
+			foreach (Witch witch in _witches) {
+				witch.Init(this);
+			}
 		}
 
-		protected override void OnPotionEndAction() {
-			foreach (Witch witch in _witches) witch.Deactivate();
+		public void OnWitchFire() {
+			count++;
+			if (count >= _witches.Length) {
+				_target.Activate();
+			}
 		}
 	}
 }

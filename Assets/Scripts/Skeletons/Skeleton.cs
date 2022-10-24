@@ -6,7 +6,6 @@ using Vampires;
 namespace Skeletons {
 	public class Skeleton : PickupableHolder {
 		[SerializeField] private SkeletonType _skeletonType;
-		[SerializeField] private GameObject _boney;
 		[SerializeField] private VampireEyeball[] _eyes;
 		[SerializeField] private ParticleSystem _handParticles;
 		[SerializeField] private Light _handLight;
@@ -40,15 +39,10 @@ namespace Skeletons {
 			_handParticles.Stop();
 			_handLight.enabled = false;
 			_puzzle.SkeletonHypnotized();
+			Enabled = false;
 			foreach (VampireEyeball eye in _eyes) {
 				eye.SetDead();
 			}
-		}
-
-		public void Die() {
-			//gameObject.SetActive(false);
-			//CurrentPickupable?.gameObject.SetActive(false);
-			//_boney.SetActive(true);
 		}
 	}
 

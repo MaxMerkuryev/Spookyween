@@ -16,11 +16,7 @@ namespace Skeletons {
 
 			if (_count < _skeletons.Length) return;
 
-			_target.Activate(() => {
-				foreach (Skeleton skeleton in _skeletons) {
-					skeleton.Die();
-				}
-			});
+			_target.Activate();
 		}
 
 		private void Awake() {

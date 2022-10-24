@@ -27,6 +27,7 @@ namespace Vampires {
 			};
 			
 			base.Pickup(pickupable, path, useCustomOrientation);
+			Enabled = false;
 			DOTween.Sequence().InsertCallback(0.25f, () => {
 				Die();
 				_puzzle.OnKillVampire();

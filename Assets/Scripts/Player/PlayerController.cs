@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Player {
 	public class PlayerController : Lockable {
+		public bool IsGrounded => _grounded;
+		public bool IsWalkin => !Mathf.Approximately(_movementInput.magnitude, 0f);
+		
 		[Header("CAMERA BOB")]
 		[SerializeField] private float _amplitude = 0.01f;
 		[SerializeField] private float _frequency = 15f;

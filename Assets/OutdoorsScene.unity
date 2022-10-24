@@ -7813,6 +7813,38 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &426911512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4472492031423016585, guid: 3f9d481c1affa4c48b7b857025fac350,
+    type: 3}
+  m_PrefabInstance: {fileID: 5830152354071530105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &426911517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4472492031423016584, guid: 3f9d481c1affa4c48b7b857025fac350,
+    type: 3}
+  m_PrefabInstance: {fileID: 5830152354071530105}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426911512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2353d20b942f744f84622adec71bffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &426911523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426911512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32ba8f870b34778be37f84faba5dcf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 426911517}
+  _period: 0.35
 --- !u!1001 &427037071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46468,6 +46500,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1ed62eda0b6ed349a57914492f348d3, type: 3}
+--- !u!1001 &8095552651923371255
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685712, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095552651284685714, guid: 52c8215e8abcd0b439137f03ca2270da,
+        type: 3}
+      propertyPath: m_Name
+      value: SfxPlayer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52c8215e8abcd0b439137f03ca2270da, type: 3}
 --- !u!23 &8112832757844614322
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ namespace Skeletons {
 		[SerializeField] private SkeletonType _skeletonType;
 		[SerializeField] private GameObject _boney;
 		[SerializeField] private VampireEyeball[] _eyes;
+		[SerializeField] private ParticleSystem _handParticles;
+		[SerializeField] private Light _handLight;
 
 		public override string ActionName => "skeleton";
 		public override InteractionType InteractionType => InteractionType.Click;
@@ -35,6 +37,8 @@ namespace Skeletons {
 
 		public void Hypnotize() {
 			_hypnotized = true;
+			_handParticles.Stop();
+			_handLight.enabled = false;
 			_puzzle.SkeletonHypnotized();
 			foreach (VampireEyeball eye in _eyes) {
 				eye.SetDead();
@@ -42,9 +46,9 @@ namespace Skeletons {
 		}
 
 		public void Die() {
-			gameObject.SetActive(false);
-			CurrentPickupable?.gameObject.SetActive(false);
-			_boney.SetActive(true);
+			//gameObject.SetActive(false);
+			//CurrentPickupable?.gameObject.SetActive(false);
+			//_boney.SetActive(true);
 		}
 	}
 

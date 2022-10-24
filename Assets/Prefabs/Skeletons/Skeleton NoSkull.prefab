@@ -235,6 +235,8 @@ MonoBehaviour:
   _eyes:
   - {fileID: 116256048179411133}
   - {fileID: 116256048228592588}
+  _handParticles: {fileID: 7375034209441489179}
+  _handLight: {fileID: 4239062436056734553}
 --- !u!1 &472805071156890662
 GameObject:
   m_ObjectHideFlags: 0

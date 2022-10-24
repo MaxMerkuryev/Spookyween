@@ -19,7 +19,7 @@ namespace Alchemy {
 		public override InteractionKeyType KeyType => InteractionKeyType.Default;
 		
 		public override void Interact() {
-			AlchemyData.OnDrinkPotion?.Invoke(_potionType);
+			//AlchemyData.OnDrinkPotion?.Invoke(_potionType);
 			PotionEffectController.INSTANCE?.Drink(_potionType);
 			Destroy(gameObject);
 		}

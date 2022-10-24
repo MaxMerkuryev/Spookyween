@@ -1,5 +1,4 @@
-﻿using System;
-using Alchemy;
+﻿using Alchemy;
 using DG.Tweening;
 using UnityEngine;
 
@@ -20,7 +19,7 @@ namespace Wispers {
 
 		private void OnTrigger(int index) {
 			_currentWisp?.Disable();
-
+			
 			if (index + 1 >= _wispers.Length) {
 				_passed = true;
 				_targetParticles.Play();
@@ -36,12 +35,16 @@ namespace Wispers {
 		
 		protected override void OnPotionDrinkAction() {
 			if(_passed)	return;
-			OnTrigger(-1);
+			
+			if(_currentWisp) _currentWisp.Enable();
+			else OnTrigger(-1);
 		}
 
 		protected override void OnPotionEndAction() {
 			if (_passed) return;
-			_currentWisp?.Disable();
+			foreach (Wisp wisp in _wispers) {
+				wisp.Disable();
+			}
 		}
 	}
 }

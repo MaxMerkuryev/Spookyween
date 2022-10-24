@@ -61,6 +61,9 @@ namespace Alchemy {
 		}
 		
 		private void Update() {
+			if(Input.GetKeyDown(KeyCode.R)) Drink(PotionType.GhostBreath);
+			if(Input.GetKeyDown(KeyCode.T)) End();
+			
 			if(!_workin) return;
 			if (CurrentTime <= 0f) {
 				CurrentTime = 0f;

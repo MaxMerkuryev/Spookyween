@@ -61,8 +61,6 @@ namespace Alchemy {
 		}
 		
 		private void Update() {
-			if(Input.GetKeyDown(KeyCode.R)) Drink(PotionType.WitchsBrew);
-			
 			if(!_workin) return;
 			if (CurrentTime <= 0f) {
 				CurrentTime = 0f;

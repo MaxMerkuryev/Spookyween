@@ -17,7 +17,7 @@ namespace Player {
 
 				if (!_playerController.IsGrounded) return;
 				if (!_playerController.IsWalkin) return;
-				SfxPlayer.Play(SfxType.Foot, transform.position);
+				SfxPlayer.Play(SfxType.Foot);
 			}
 		}
 	}

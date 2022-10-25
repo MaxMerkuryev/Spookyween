@@ -10,10 +10,10 @@ namespace SfxSystem {
 
 		private Queue<Sfx> _sfxPool = new Queue<Sfx>();
 		
-		private static Action<SfxType, Vector3> _playAction;
+		private static Action<SfxType> _playAction;
 		
-		public static void Play(SfxType sfxType, Vector3 position) {
-			_playAction?.Invoke(sfxType, position);
+		public static void Play(SfxType sfxType) {
+			_playAction?.Invoke(sfxType);
 		}
 
 		private void Awake() {
@@ -31,11 +31,11 @@ namespace SfxSystem {
 			_playAction -= OnPlay;
 		}
 
-		private void OnPlay(SfxType sfxType, Vector3 position) {
+		private void OnPlay(SfxType sfxType) {
 			AudioClip clip = _config.GetClip(sfxType);
 			if(clip == null) return;
 			Sfx sfx = _sfxPool.Dequeue();
-			sfx.Play(clip, position);
+			sfx.Play(clip);
 			_sfxPool.Enqueue(sfx);
 		}
 	}

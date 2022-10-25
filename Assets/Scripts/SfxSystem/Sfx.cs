@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SfxSystem {
 	[RequireComponent(typeof(AudioSource))]
@@ -10,9 +9,8 @@ namespace SfxSystem {
 			_source = GetComponent<AudioSource>();
 		}
 
-		public void Play(AudioClip clip, Vector3 position) {
+		public void Play(AudioClip clip) {
 			_source.Stop();
-			transform.position = position;
 			_source.clip = clip;
 			_source.Play();
 		}

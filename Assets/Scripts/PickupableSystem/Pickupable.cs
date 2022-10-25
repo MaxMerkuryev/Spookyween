@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using InteractableSystem;
+using SfxSystem;
 using UnityEngine;
 
 namespace PickupableSystem {
@@ -38,6 +39,7 @@ namespace PickupableSystem {
 		}
 
 		public void OnPickup(Transform parent, Vector3[] customPath = null, bool useCustomOrientation = false) {
+			SfxPlayer.Play(SfxType.Pickup);
 			Enabled = false;
 			_rigidbody.velocity *= 0f;
 			_rigidbody.angularVelocity *= 0f;
@@ -59,6 +61,7 @@ namespace PickupableSystem {
 		}
 
 		public void OnDrop(Vector3 dropOrientation) {
+			SfxPlayer.Play(SfxType.Drop);
 			Enabled = true;
 			_collider.enabled = true;
 			_rigidbody.isKinematic = false;

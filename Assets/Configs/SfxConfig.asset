@@ -26,3 +26,7 @@ MonoBehaviour:
     _clips:
     - {fileID: 8300000, guid: 420cd42fb17a6644abc010853deda4a1, type: 3}
     name: Drop
+  - Type: 3
+    _clips:
+    - {fileID: 8300000, guid: a3075fee791e58c4faec5db80a67e43c, type: 3}
+    name: Jump

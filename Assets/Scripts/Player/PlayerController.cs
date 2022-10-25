@@ -1,3 +1,4 @@
+using SfxSystem;
 using Ui;
 using Unity.Mathematics;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Player {
 		[SerializeField] private LayerMask _groundLayer;
 		[SerializeField] private Rigidbody _player;
 		[SerializeField] private float _speed = 5f;
+		[SerializeField] private float _speedRun = 8f;
 		[SerializeField] private float _jumpForce = 15f;
 		[SerializeField] private float _gravity = 1f;
 
@@ -40,6 +42,7 @@ namespace Player {
 		private float _sphereRadius;
 		private float _gravityFactor = 1f;
 		private float _poisonFactor = 0f;
+		private float _currentSpeed;
 
 		private const float _toggleSpeed = 3f;
 
@@ -56,7 +59,9 @@ namespace Player {
 		private void Awake() {
 			_playerHeight = _playerCollider.height / 2f + _groundCheckRayOffset;
 			_sphereRadius = _playerCollider.radius - _groundCheckSphereOffset;
-			Application.targetFrameRate = 75;
+			_currentSpeed = _speed;
+			
+			Application.targetFrameRate = 75; // it shouldn't be here
 		}
 
 		private void MoveCamera() {
@@ -83,12 +88,13 @@ namespace Player {
 			HandleCameraInput();
 			HandleMovementInput();
 			HandleJumpInput();
+			HandleRunInput();
 
 			ResetCamera();
 			MoveCamera();
 			CAMERA_POSITION = _cameraHolder.position;
 		}
-
+		
 		protected override void OnFixedUpdate() {
 			CheckGround();
 			MovePlayer();
@@ -120,7 +126,7 @@ namespace Player {
 		}
 		
 		private void MovePlayer() {
-			_player.velocity += _movementInput * _speed;
+			_player.velocity += _movementInput * _currentSpeed;
 		}
 
 		private void ApplyAirDrag() {
@@ -155,6 +161,11 @@ namespace Player {
 			if (!_grounded) return;
 			if (!Input.GetKeyDown(KeyCode.Space)) return;
 			_jumped = true;
+			SfxPlayer.Play(SfxType.Jump);
+		}
+		
+		private void HandleRunInput() {
+			_currentSpeed = Input.GetKey(KeyCode.LeftShift) ? _speedRun : _speed;
 		}
 
 		

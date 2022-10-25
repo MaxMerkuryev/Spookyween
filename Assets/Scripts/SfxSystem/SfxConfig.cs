@@ -46,6 +46,7 @@ namespace SfxSystem {
 	public enum SfxType {
 		Foot,
 		Pickup,
-		Drop
+		Drop,
+		Jump
 	}
 }

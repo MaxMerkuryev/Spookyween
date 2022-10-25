@@ -5183,6 +5183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb5dd898d7940e7b1192132ade3a210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resettable: 1
   _fire: {fileID: 957108701045013713}
   _light: {fileID: 957108699543796945}
 --- !u!114 &7979198696190899712

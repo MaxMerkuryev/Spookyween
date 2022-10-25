@@ -33,6 +33,7 @@ namespace PickupableSystem {
 			_initialRotation = transform.rotation;
 			_rigidbody = GetComponent<Rigidbody>();
 			_collider = GetComponent<Collider>();
+			_rigidbody.isKinematic = true;
 		}
 
 		protected override void OnEnable() {
@@ -95,9 +96,9 @@ namespace PickupableSystem {
 			if(!Enabled) return;
 			_rigidbody.velocity *= 0;
 			_rigidbody.angularVelocity *= 0f;
+			_rigidbody.isKinematic = true;
 			transform.position = _initialPosition;
 			transform.rotation = _initialRotation;
-			OnDrop(Vector3.zero);
 		}
 	}
 

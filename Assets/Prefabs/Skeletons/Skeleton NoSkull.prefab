@@ -231,7 +231,6 @@ MonoBehaviour:
   _container: {fileID: 1156864854119782617}
   _pickupableType: 3
   _skeletonType: 0
-  _boney: {fileID: 7656998570230408379}
   _eyes:
   - {fileID: 116256048179411133}
   - {fileID: 116256048228592588}
@@ -15829,6 +15828,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578688193266852712, guid: 4920e7bfab9f3bb4eae3722dde40044e,
+        type: 3}
+      propertyPath: _resettable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4920e7bfab9f3bb4eae3722dde40044e, type: 3}

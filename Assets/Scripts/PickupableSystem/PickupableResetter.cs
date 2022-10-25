@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace PickupableSystem {
 	public class PickupableResetter : Interactable {
+		[SerializeField] private ParticleSystem _particles;
 		private static List<Pickupable> _items = new List<Pickupable>();
 		
 		public static void AddPickupable(Pickupable pickupable) {
@@ -21,6 +22,7 @@ namespace PickupableSystem {
 		public override InteractionKeyType KeyType => InteractionKeyType.Default;
 
 		public override void Interact() {
+			_particles.Play();
 			foreach (Pickupable item in _items) {
 				item.ResetPickupable();
 			}

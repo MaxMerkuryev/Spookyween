@@ -33,7 +33,8 @@ namespace Alchemy {
 			PotionConfig config = _configs.Find(c => c.PotionType == type);
 			if(config == null) return;
 			_mesh.material = config.Material;
-			_particles.GetComponent<Renderer>().material = config.Material;
+			var main = _particles.main;
+			main.startColor = config.ParticleColor;
 		}
 	}
 
@@ -41,5 +42,6 @@ namespace Alchemy {
 	public class PotionConfig {
 		public PotionType PotionType;
 		public Material Material;
+		public Color ParticleColor;
 	}
 }

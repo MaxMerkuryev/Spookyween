@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace PickupableSystem {
 	public abstract class Pickupable : Interactable {
+		[SerializeField] private bool _resettable;
 		private Rigidbody _rigidbody;
 		private Collider _collider;
 
@@ -32,6 +33,16 @@ namespace PickupableSystem {
 			_initialRotation = transform.rotation;
 			_rigidbody = GetComponent<Rigidbody>();
 			_collider = GetComponent<Collider>();
+		}
+
+		protected override void OnEnable() {
+			base.OnEnable();
+			if(_resettable) PickupableResetter.AddPickupable(this);
+		}
+
+		protected override void OnDisable() {
+			base.OnDisable();
+			if(_resettable) PickupableResetter.RemovePickupable(this);
 		}
 
 		public override void Interact() {

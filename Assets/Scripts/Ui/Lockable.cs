@@ -5,12 +5,12 @@ namespace Ui {
 	public abstract class Lockable : MonoBehaviour{
 		private bool _locked;
 		
-		private void OnEnable() {
+		protected virtual void OnEnable() {
 			PauseMenu.OnShow += Lock;
 			PauseMenu.OnHide += Unlock;
 		}
 
-		private void OnDisable() {
+		protected virtual void OnDisable() {
 			PauseMenu.OnShow -= Lock;
 			PauseMenu.OnHide -= Unlock;
 		}

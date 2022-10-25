@@ -92,6 +92,7 @@ namespace PickupableSystem {
 		}
 		
 		public void ResetPickupable() {
+			if(!Enabled) return;
 			_rigidbody.velocity *= 0;
 			_rigidbody.angularVelocity *= 0f;
 			transform.position = _initialPosition;

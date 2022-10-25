@@ -20,27 +20,9 @@ namespace PickupableSystem {
 		public override InteractionType InteractionType => InteractionType.Click;
 		public override InteractionKeyType KeyType => InteractionKeyType.Default;
 
-		private const float _resetTime = 3f;
-		private float _currentResetTimer;
-		
 		public override void Interact() {
 			foreach (Pickupable item in _items) {
 				item.ResetPickupable();
-			}
-
-			_currentResetTimer = _resetTime;
-			Enabled = false;
-		}
-
-		protected override void OnUpdate() {
-			base.OnUpdate();
-			if (_currentResetTimer > 0) {
-				_currentResetTimer -= Time.deltaTime;
-			}
-			else {
-				if (!Enabled) {
-					Enabled = true;
-				}
 			}
 		}
 	}

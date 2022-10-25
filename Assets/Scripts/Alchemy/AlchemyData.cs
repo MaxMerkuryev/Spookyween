@@ -11,7 +11,7 @@ namespace Alchemy {
 				PotionType.PumpkinJuice => "pumpkin juice",
 				PotionType.VampireBlood => "vampire blood",
 				PotionType.GhostBreath => "ghost breath",
-				PotionType.Poison => "posion",
+				PotionType.Poison => "poison",
 				PotionType.WitchsBrew => "witch's brew",
 				PotionType.Hypnosis => "hypnosis",
 				_ => "wunsch"

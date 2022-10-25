@@ -62,7 +62,7 @@ namespace Player {
 		private void MoveCamera() {
 			if (_poisonFactor > 0f) {
 				_camera.localPosition += CameraMotion * (HorizontalSpeed + 1f);
-				Vector3 rot = new Vector3(CameraMotion.x + CameraMotion.y, CameraMotion.x - CameraMotion.y, -CameraMotion.x - CameraMotion.y) * 10000f;
+				Vector3 rot = new Vector3(CameraMotion.y, CameraMotion.x, Mathf.Sin(Time.time * 3f) * 65f);
 				_camera.localRotation = Quaternion.Slerp(_camera.localRotation, Quaternion.Euler(rot), 1f * Time.deltaTime);
 				return;
 			}

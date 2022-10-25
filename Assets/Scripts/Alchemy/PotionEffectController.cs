@@ -26,7 +26,7 @@ namespace Alchemy {
 			get => _currentTime;
 			set {
 				_currentTime = value;
-				OnTimeChange?.Invoke(_currentTime);
+				OnTimeChange?.Invoke(_currentTime / _currentPotionEffect.Duration);
 			}
 		}
 

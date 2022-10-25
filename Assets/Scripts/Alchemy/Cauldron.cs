@@ -16,17 +16,16 @@ namespace Alchemy {
 		[SerializeField] private ParticleSystem _createPotionEffect;
 
 		private Potion _currentPotion;
-		
-		public override bool Enabled {
-			get => _currentPotion == null && _holderA.CurrentPickupable != null && _holderB.CurrentPickupable != null;
-			protected set {}
-		}
 
-		public override string ActionName => "make a potion";
+		public override bool Enabled { get; protected set; } = true;
+		
+		public override string ActionName => "cauldron";
 		public override InteractionType InteractionType => InteractionType.Click;
 		public override InteractionKeyType KeyType => Enabled ? InteractionKeyType.Default : InteractionKeyType.None;
 		
 		public override void Interact() {
+			if(_currentPotion != null || _holderA.CurrentPickupable == null || _holderB.CurrentPickupable == null) return;
+
 			_holderA.TryClaimPickupable(PickupableType.Ingredient, out Pickupable pickupableA);
 			_holderB.TryClaimPickupable(PickupableType.Ingredient, out Pickupable pickupableB);
 

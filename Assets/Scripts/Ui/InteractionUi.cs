@@ -23,10 +23,10 @@ namespace Ui {
 		private void OnDisable() => _updateUi -= UpdateUi;
 
 		private void UpdateUi(string actionKey, string actionName) {
-			_canvasGroup.alpha = 1f;
 			_actionKeyContainer.SetActive(!string.IsNullOrEmpty(actionKey));
 			_actionKey.text = actionKey;
 			_actionName.text = actionName;
+			_canvasGroup.alpha = 1f;
 			_currentClearTime = Time.time + _clearTime;
 		}
 

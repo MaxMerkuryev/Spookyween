@@ -10,6 +10,8 @@ namespace Witches {
 		[SerializeField] private ParticleSystem _particles;
 		[SerializeField] private VampireEyeball[] _eyes;
 
+		public override string ActionName => "witch";
+
 		private WitchsPuzzle _witchsPuzzle;
 
 		public void Init(WitchsPuzzle witchsPuzzle) {

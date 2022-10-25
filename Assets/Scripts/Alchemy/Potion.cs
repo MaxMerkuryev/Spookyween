@@ -13,7 +13,7 @@ namespace Alchemy {
 		private PotionType _potionType;
 
 		public override bool Enabled { get; protected set; } = true;
-		public override string ActionName => $"drink {AlchemyData.GetPotionName(_potionType)}";
+		public override string ActionName => AlchemyData.GetPotionName(_potionType);
 
 		public override InteractionType InteractionType => InteractionType.Click;
 		public override InteractionKeyType KeyType => InteractionKeyType.Default;

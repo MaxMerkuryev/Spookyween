@@ -10151,10 +10151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ed4531902f4a1a9f30a329bb78e119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _holderA: {fileID: 9199385620010702760}
-  _holderB: {fileID: 2978103128969682284}
-  _innerHolderA: {fileID: 7939805326158773502}
-  _innerHolderB: {fileID: 7939805326091733171}
+  _holderA: {fileID: 6835270564566478338}
+  _holderB: {fileID: 5988064836447768643}
+  _innerHolderA: {fileID: 7700568380997925205}
+  _innerHolderB: {fileID: 4995007781654405065}
   _pathHelpPoint: {fileID: 7939805326105631474}
   _potionSpawn: {fileID: 7939805327497754633}
   _potionPrefab: {fileID: 7808563602249618781, guid: 48ca18992ee68d14fa886b2212ed013a,
@@ -10185,8 +10185,8 @@ GameObject:
   - component: {fileID: 4955152037261625742}
   - component: {fileID: 4955152037265017262}
   - component: {fileID: 4955152037264051054}
-  - component: {fileID: 9199385620010702760}
   - component: {fileID: 1772869747377485486}
+  - component: {fileID: 6835270564566478338}
   m_Layer: 0
   m_Name: HolderA
   m_TagString: Untagged
@@ -10259,21 +10259,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &9199385620010702760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4955152037262120366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eea4e3488344d13970cee2c998cd42f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dropOrientaion: {fileID: 7737676759620363415}
-  _container: {fileID: 7737676759620363415}
-  _pickupableType: 1
 --- !u!65 &1772869747377485486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10287,6 +10272,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7849571, y: 3.999999, z: 0.7849572}
   m_Center: {x: -0.0000018804329, y: 1.9999995, z: 0.0000009285241}
+--- !u!114 &6835270564566478338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955152037262120366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db7427f13cd49d58a426193a60c15f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dropOrientaion: {fileID: 7737676759620363415}
+  _container: {fileID: 7737676759620363415}
+  _pickupableType: 1
 --- !u!1 &7939805326091733168
 GameObject:
   m_ObjectHideFlags: 0
@@ -10296,7 +10296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7939805326091733170}
-  - component: {fileID: 7939805326091733171}
+  - component: {fileID: 4995007781654405065}
   m_Layer: 0
   m_Name: innerholder2
   m_TagString: Untagged
@@ -10321,7 +10321,7 @@ Transform:
   m_Father: {fileID: 8630140325896357438}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!114 &7939805326091733171
+--- !u!114 &4995007781654405065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10330,7 +10330,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7939805326091733168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eea4e3488344d13970cee2c998cd42f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0db7427f13cd49d58a426193a60c15f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _dropOrientaion: {fileID: 7939805326817516159}
@@ -10376,7 +10376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7939805326158773497}
-  - component: {fileID: 7939805326158773502}
+  - component: {fileID: 7700568380997925205}
   m_Layer: 0
   m_Name: innerholder1
   m_TagString: Untagged
@@ -10401,7 +10401,7 @@ Transform:
   m_Father: {fileID: 8630140325896357438}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!114 &7939805326158773502
+--- !u!114 &7700568380997925205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10410,7 +10410,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7939805326158773503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eea4e3488344d13970cee2c998cd42f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0db7427f13cd49d58a426193a60c15f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _dropOrientaion: {fileID: 7939805326172183569}
@@ -15394,8 +15394,8 @@ GameObject:
   - component: {fileID: 9097810257446959841}
   - component: {fileID: 9097810257449827009}
   - component: {fileID: 9097810257448728577}
-  - component: {fileID: 2978103128969682284}
   - component: {fileID: 8030728089688663816}
+  - component: {fileID: 5988064836447768643}
   m_Layer: 0
   m_Name: HolderB
   m_TagString: Untagged
@@ -15468,21 +15468,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2978103128969682284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9097810257446463169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eea4e3488344d13970cee2c998cd42f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dropOrientaion: {fileID: 7068724998602201661}
-  _container: {fileID: 7068724998602201661}
-  _pickupableType: 1
 --- !u!65 &8030728089688663816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15496,3 +15481,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7849574, y: 3.999999, z: 0.78495747}
   m_Center: {x: -0.00000007272044, y: 1.9999983, z: -0.00000009738403}
+--- !u!114 &5988064836447768643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9097810257446463169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db7427f13cd49d58a426193a60c15f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dropOrientaion: {fileID: 7068724998602201661}
+  _container: {fileID: 7068724998602201661}
+  _pickupableType: 1

@@ -16,7 +16,7 @@ namespace PickupableSystem {
 		
 		protected override void OnUpdate() {
 			if(!CurrentPickupable) return;
-			InteractionUi.Invoke(_dropKey.ToString(), $"drop {CurrentPickupable.Name}");
+			InteractionUi.Invoke(_dropKey.ToString(), "drop");
 			if (Input.GetKeyDown(_dropKey)) DropCurrentPickupable();
 		}
 		

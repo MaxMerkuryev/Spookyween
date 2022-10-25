@@ -9,6 +9,7 @@ namespace Vampires {
 		[SerializeField] private ParticleSystem _blood;
 		[SerializeField] private ParticleSystem _flame;
 
+		public override string ActionName => "vampire";
 		public bool Dead { get; private set; }
 		
 		private VampirePuzzle _puzzle;

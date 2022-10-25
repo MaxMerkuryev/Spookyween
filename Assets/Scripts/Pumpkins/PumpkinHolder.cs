@@ -7,6 +7,7 @@ namespace Pumpkins {
 		[SerializeField] private PumpkinType _pumpkinType;
 
 		public bool Correct => CurrentPickupable != null && (CurrentPickupable as Pumpkin).PumpkinType == _pumpkinType;
+		public override string ActionName => "mysterious altar";
 		public override bool Enabled => CurrentPickupable == null;
 		public Action OnPickup;
 

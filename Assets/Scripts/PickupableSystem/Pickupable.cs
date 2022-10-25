@@ -22,7 +22,7 @@ namespace PickupableSystem {
 		protected virtual Vector3 _offset { get; }
 		
 		public override bool Enabled { get; protected set; } = true; 
-		public override string ActionName => $"pick up {Name}";
+		public override string ActionName => Name;
 		public override InteractionType InteractionType => InteractionType.Click;
 		public override InteractionKeyType KeyType => InteractionKeyType.Default;
 

@@ -14,19 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clips:
   - Type: 0
-    _clips:
-    - {fileID: 8300000, guid: 89d4506a0aaa7fc47b8d58f8d9c51512, type: 3}
-    - {fileID: 8300000, guid: 59c1cc20eef74fb4aa71db8ea42417df, type: 3}
-    name: Foot
+    Clip: {fileID: 8300000, guid: 420cd42fb17a6644abc010853deda4a1, type: 3}
   - Type: 1
-    _clips:
-    - {fileID: 8300000, guid: 420cd42fb17a6644abc010853deda4a1, type: 3}
-    name: Pickup
+    Clip: {fileID: 8300000, guid: 420cd42fb17a6644abc010853deda4a1, type: 3}
   - Type: 2
-    _clips:
-    - {fileID: 8300000, guid: 420cd42fb17a6644abc010853deda4a1, type: 3}
-    name: Drop
+    Clip: {fileID: 8300000, guid: a3075fee791e58c4faec5db80a67e43c, type: 3}
   - Type: 3
-    _clips:
-    - {fileID: 8300000, guid: a3075fee791e58c4faec5db80a67e43c, type: 3}
-    name: Jump
+    Clip: {fileID: 8300000, guid: 870d65e926c9d7d4db04235ad92cec27, type: 3}
+  - Type: 4
+    Clip: {fileID: 8300000, guid: fba36fddfda8f664ab127d70fb0516a2, type: 3}

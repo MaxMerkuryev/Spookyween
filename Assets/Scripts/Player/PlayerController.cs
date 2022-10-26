@@ -1,12 +1,10 @@
 using SfxSystem;
 using Ui;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Player {
 	public class PlayerController : Lockable {
-		public bool IsGrounded => _grounded;
-		public bool IsWalkin => !Mathf.Approximately(_movementInput.magnitude, 0f);
+		public bool IsWalkin => _grounded && _player.velocity.magnitude > 1f;
 		
 		[Header("CAMERA BOB")]
 		[SerializeField] private float _amplitude = 0.01f;

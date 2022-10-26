@@ -8,12 +8,14 @@ namespace Pumpkins {
 
 		public bool Correct => CurrentPickupable != null && (CurrentPickupable as Pumpkin).PumpkinType == _pumpkinType;
 		public override string ActionName => "mysterious altar";
-		public override bool Enabled => CurrentPickupable == null;
+	
 		public Action OnPickup;
 
 		public override void Pickup(Pickupable pickupable, Vector3[] customPath = null, bool useCustomOrientation = false) {
 			base.Pickup(pickupable, customPath, useCustomOrientation);
 			OnPickup?.Invoke();
 		}
+
+		public void Disable() => Enabled = false;
 	}
 }

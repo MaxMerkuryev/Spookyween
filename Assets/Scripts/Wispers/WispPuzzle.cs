@@ -1,12 +1,13 @@
 ﻿using Alchemy;
 using DG.Tweening;
+using PickupableSystem;
 using UnityEngine;
 
 namespace Wispers {
 	public class WispPuzzle : PotionEffectReceiver {
 		[SerializeField] private Wisp[] _wispers;
 		[SerializeField] private ParticleSystem _targetParticles;
-		[SerializeField] private GameObject _target;
+		[SerializeField] private Pickupable _target;
 
 		private Wisp _currentWisp;
 		private bool _passed;
@@ -23,7 +24,8 @@ namespace Wispers {
 			if (index + 1 >= _wispers.Length) {
 				_passed = true;
 				_targetParticles.Play();
-				DOTween.Sequence().InsertCallback(0.1f, ()=> _target.SetActive(true));
+				DOTween.Sequence().InsertCallback(0.1f, ()=> _target.OnDrop(Vector3.zero));
+				PotionEffectController.INSTANCE.End();
 				return;
 			}
 

@@ -7,6 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 651697514152710467, guid: 203da289347500a40a58ead2aa2f9b5f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 651697514152710467, guid: 203da289347500a40a58ead2aa2f9b5f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 651697514152710467, guid: 203da289347500a40a58ead2aa2f9b5f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.067222
+      objectReference: {fileID: 0}
     - target: {fileID: 3703301283459321974, guid: 203da289347500a40a58ead2aa2f9b5f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -82,6 +97,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ff1f8d62f96460c43aff7808002f122b, type: 2}
+    - target: {fileID: 4604377146376622759, guid: 203da289347500a40a58ead2aa2f9b5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8812322089998268012, guid: 203da289347500a40a58ead2aa2f9b5f,
         type: 3}
       propertyPath: _pumpkinType

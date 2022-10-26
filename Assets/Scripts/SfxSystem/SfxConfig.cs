@@ -28,6 +28,9 @@ namespace SfxSystem {
 		Drop,
 		Jump,
 		PortalFinish,
-		Thunder
+		Thunder,
+		PotionDrink,
+		PotionEnd,
+		WispTrigger
 	}
 }

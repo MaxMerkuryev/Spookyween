@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using SfxSystem;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -49,6 +50,7 @@ namespace Alchemy {
 				_colorAdjustments.color.Override(color);
 			}).SetEase(Ease.OutCirc);
 			OnDrink?.Invoke(type);
+			SfxPlayer.Play(SfxType.PotionDrink);
 		}
 
 		public void End() {
@@ -58,6 +60,7 @@ namespace Alchemy {
 				_colorAdjustments.color.Override(color);
 			}).SetEase(Ease.OutCirc);
 			OnEnd?.Invoke(_currentPotionEffect.Type);
+			SfxPlayer.Play(SfxType.PotionEnd);
 		}
 		
 		private void Update() {

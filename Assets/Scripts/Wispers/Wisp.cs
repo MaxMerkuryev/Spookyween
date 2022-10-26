@@ -1,5 +1,6 @@
 ﻿using System;
 using Player;
+using SfxSystem;
 using UnityEngine;
 
 namespace Wispers {
@@ -19,6 +20,7 @@ namespace Wispers {
 		private void OnTriggerEnter(Collider other) {
 			if (other.TryGetComponent(out PlayerController p)) {
 				_onTrigger?.Invoke(_index);
+				SfxPlayer.Play(SfxType.WispTrigger);
 			}
 		}
 

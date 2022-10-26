@@ -51,7 +51,7 @@ namespace Alchemy {
 			OnDrink?.Invoke(type);
 		}
 
-		private void End() {
+		public void End() {
 			_workin = false;
 			CurrentTime = 0;
 			DOVirtual.Color(_colorAdjustments.color.value, Color.white, 1f, color => {

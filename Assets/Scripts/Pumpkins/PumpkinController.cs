@@ -51,10 +51,10 @@ namespace Pumpkins {
 		
 		private void Update() {
 			if (Input.GetKeyDown(KeyCode.R)) {
-				Reset();
+				//Reset();
 			}
 			if (Input.GetKeyDown(KeyCode.T)) {
-				Finish();
+				//Finish();
 			}
 		}
 	}

@@ -13740,7 +13740,7 @@ PrefabInstance:
     - target: {fileID: 1465878375256522150, guid: 501ac1453bb5ef0498debb27427315a0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 113.545
       objectReference: {fileID: 0}
     - target: {fileID: 1465878375256522150, guid: 501ac1453bb5ef0498debb27427315a0,
         type: 3}
@@ -13795,7 +13795,7 @@ PrefabInstance:
     - target: {fileID: 2808565488449030408, guid: 501ac1453bb5ef0498debb27427315a0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 113.545
       objectReference: {fileID: 0}
     - target: {fileID: 2808565488449030408, guid: 501ac1453bb5ef0498debb27427315a0,
         type: 3}
@@ -22928,7 +22928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1273740470
 Transform:
   m_ObjectHideFlags: 0
@@ -47581,61 +47581,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PotionEffectController
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.data[5].Type
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.data[1].Duration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.data[2].Duration
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.data[3].Duration
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.data[4].Duration
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.data[5].Duration
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.data[5].ColorFilter.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.data[5].ColorFilter.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.data[5].ColorFilter.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531134150302501287, guid: 6072f64ea3649ec40b84c9fcdf8c989c,
-        type: 3}
-      propertyPath: _effects.Array.data[5].ColorFilter.r
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6072f64ea3649ec40b84c9fcdf8c989c, type: 3}

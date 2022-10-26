@@ -1,4 +1,5 @@
 ﻿using System;
+using Alchemy;
 using DG.Tweening;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace CommonPuzzle {
 					_explosion.Play();
 					_target.isKinematic = false;
 					onComplete?.Invoke();
+					PotionEffectController.INSTANCE.End();
 				});
 		}
 	}

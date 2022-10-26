@@ -24,7 +24,10 @@ namespace Wispers {
 			if (index + 1 >= _wispers.Length) {
 				_passed = true;
 				_targetParticles.Play();
-				DOTween.Sequence().InsertCallback(0.1f, ()=> _target.OnDrop(Vector3.zero));
+				DOTween.Sequence().InsertCallback(0.1f, ()=> {
+					_target.gameObject.SetActive(true);
+					_target.GetComponent<Rigidbody>().isKinematic = false; // ouch
+				});
 				PotionEffectController.INSTANCE.End();
 				return;
 			}

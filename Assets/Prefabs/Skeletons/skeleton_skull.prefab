@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658450b024564ca894643a77b11a1ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resettable: 1
   _skeletonType: 0
   _rotationOffset: {x: -75, y: 0, z: 0}
   _positionOffset: {x: -0.282, y: -0.027, z: 0.79}

@@ -54,6 +54,7 @@ namespace Alchemy {
 		}
 
 		public void End() {
+			if(!_workin) return;
 			_workin = false;
 			CurrentTime = 0;
 			DOVirtual.Color(_colorAdjustments.color.value, Color.white, 1f, color => {

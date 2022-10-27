@@ -1,12 +1,9 @@
 ﻿using InteractableSystem;
 using PickupableSystem;
 using UnityEngine;
-using Vampires;
 
 namespace Skeletons {
 	public class Skeleton : PickupableHolder {
-		[SerializeField] private SkeletonType _skeletonType;
-		[SerializeField] private VampireEyeball[] _eyes;
 		[SerializeField] private ParticleSystem _handParticles;
 		[SerializeField] private Light _handLight;
 
@@ -26,11 +23,6 @@ namespace Skeletons {
 				return;
 			}
 			
-			SkeletonPickupable skeleton = PickupableHolderPlayer.INSTANCE.CurrentPickupable as SkeletonPickupable;
-
-			if (!skeleton) return;
-			if (skeleton.SkeletonType != _skeletonType) return;
-			
 			base.Interact();
 		}
 
@@ -40,15 +32,7 @@ namespace Skeletons {
 			_handLight.enabled = false;
 			_puzzle.SkeletonHypnotized();
 			Enabled = false;
-			foreach (VampireEyeball eye in _eyes) {
-				eye.SetDead();
-			}
+			(CurrentPickupable as SkeletonPickupable).Hypnotize();
 		}
-	}
-
-	public enum SkeletonType {
-		NoSkull,
-		NoHand,
-		NoLeg
 	}
 }

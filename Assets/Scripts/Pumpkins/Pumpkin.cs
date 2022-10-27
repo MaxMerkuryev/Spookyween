@@ -17,6 +17,7 @@ namespace Pumpkins {
 		Yellow,
 		Blue,
 		Purple,
-		Dark
+		Dark,
+		Green
 	}
 }

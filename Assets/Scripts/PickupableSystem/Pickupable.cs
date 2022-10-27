@@ -50,7 +50,7 @@ namespace PickupableSystem {
 			PickupableHolderPlayer.INSTANCE.Pickup(this, useCustomOrientation: true);
 		}
 
-		public void OnPickup(Transform parent, Vector3[] customPath = null, bool useCustomOrientation = false) {
+		public virtual void OnPickup(Transform parent, Vector3[] customPath = null, bool useCustomOrientation = false) {
 			SfxPlayer.Play(SfxType.Pickup);
 			Enabled = false;
 			_rigidbody.velocity *= 0f;
@@ -82,9 +82,14 @@ namespace PickupableSystem {
 			transform.SetParent(null);
 		}
 
-		public void SetPickupableLayer() => SetLayer(transform, _pickupableLayer);
-		public void ResetLayer() => SetLayer(transform, _defaultLayer);
-		
+		public void SetPickupableLayer() {
+			SetLayer(transform, _pickupableLayer);
+		}
+
+		public void ResetLayer() {
+			SetLayer(transform, _defaultLayer);
+		}
+
 		private void SetLayer(Transform obj, LayerMask layer) {
 			obj.gameObject.layer = layer;
 			for (int i = 0; i < obj.childCount; i++) {

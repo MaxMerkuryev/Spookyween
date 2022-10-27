@@ -1,5 +1,4 @@
-﻿using DG.Tweening;
-using InteractableSystem;
+﻿using InteractableSystem;
 using Ui;
 using UnityEngine;
 

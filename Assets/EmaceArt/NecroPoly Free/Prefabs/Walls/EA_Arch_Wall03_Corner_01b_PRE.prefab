@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 372415923836410673}
   - component: {fileID: 3640260735125738644}
   - component: {fileID: 1540295479569948766}
+  - component: {fileID: -1802972227962929510}
   m_Layer: 0
   m_Name: EA_Arch_Wall03_Corner_01b_PRE
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-1802972227962929510
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036046596217209227}
+  m_Material: {fileID: 13400000, guid: 3d58c1054cab53944a15feb104809d83, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4729216678787736728, guid: 83335b825a4d130458745a2988830bf1, type: 3}

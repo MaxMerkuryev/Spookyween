@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3107073805501436701}
   - component: {fileID: 2067522486380698808}
   - component: {fileID: 4275508099211225202}
+  - component: {fileID: 1419037364595970778}
   m_Layer: 0
   m_Name: EA_Arch_Wall03_End_01b_PRE
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1419037364595970778
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329869015891429799}
+  m_Material: {fileID: 13400000, guid: 3d58c1054cab53944a15feb104809d83, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 128792888312248430, guid: 64f44a05499e2874abf5ab83ad114deb, type: 3}

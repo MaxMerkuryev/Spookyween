@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2791540570912542096}
   - component: {fileID: 1230134496860979765}
   - component: {fileID: 3960537121743877887}
+  - component: {fileID: -9086608422559745428}
   m_Layer: 0
   m_Name: EA_Arch_Wall03_Ruin_01b_PRE
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-9086608422559745428
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3311935694337021738}
+  m_Material: {fileID: 13400000, guid: 3d58c1054cab53944a15feb104809d83, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2726515621621112961, guid: c41743cd67d678346832d641491b4ab4, type: 3}

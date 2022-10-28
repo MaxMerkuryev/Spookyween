@@ -31,6 +31,8 @@ namespace SfxSystem {
 		Thunder,
 		PotionDrink,
 		PotionEnd,
-		WispTrigger
+		WispTrigger,
+		PuzzleTargetActivate,
+		
 	}
 }

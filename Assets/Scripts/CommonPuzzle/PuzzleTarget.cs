@@ -1,6 +1,7 @@
 ﻿using System;
 using Alchemy;
 using DG.Tweening;
+using SfxSystem;
 using UnityEngine;
 
 namespace CommonPuzzle {
@@ -14,6 +15,7 @@ namespace CommonPuzzle {
 			_prepare.Play();
 			DOTween.Sequence()
 				.Insert(0f, _targetBlocker.transform.DOScale(1.5f, 2f).SetEase(Ease.OutBounce))
+				.InsertCallback(0f, () => SfxPlayer.Play(SfxType.PuzzleTargetActivate))
 				.InsertCallback(3f, () => {
 					_targetBlocker.SetActive(false);
 					_explosion.Play();

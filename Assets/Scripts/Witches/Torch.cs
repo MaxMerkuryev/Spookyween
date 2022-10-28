@@ -5,6 +5,7 @@ namespace Witches {
 	public class Torch : Pickupable {
 		[SerializeField] private ParticleSystem _fire;
 		[SerializeField] private Light _light;
+		[SerializeField] private AudioSource _audioSource;
 
 		public override string Name => "torch";
 		public override PickupableType Type => PickupableType.Torch;
@@ -13,11 +14,13 @@ namespace Witches {
 
 		public void Activate() {
 			_fire.Play();
+			_audioSource.Play();
 			_light.enabled = true;
 			IsActive = true;
 		}
 
 		public void Deactivate() {
+			_audioSource.Stop();
 			_fire.Stop();
 			_light.enabled = false;
 			IsActive = false;

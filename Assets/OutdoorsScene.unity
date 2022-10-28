@@ -30854,6 +30854,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 233926725557258447, guid: 3f9d481c1affa4c48b7b857025fac350,
+        type: 3}
+      propertyPath: m_ClearDepth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 233926725557258447, guid: 3f9d481c1affa4c48b7b857025fac350,
+        type: 3}
+      propertyPath: m_RenderShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 233926725557258447, guid: 3f9d481c1affa4c48b7b857025fac350,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4472492031423016585, guid: 3f9d481c1affa4c48b7b857025fac350,
         type: 3}
       propertyPath: m_Name
@@ -30913,6 +30928,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527091533305739228, guid: 3f9d481c1affa4c48b7b857025fac350,
+        type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f9d481c1affa4c48b7b857025fac350, type: 3}

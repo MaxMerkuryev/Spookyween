@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using DG.Tweening;
+using SfxSystem;
+using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -15,9 +18,14 @@ namespace Alchemy {
 		
 		protected override void OnPotionDrinkAction() {
 			_chromaticAberration.active = true;
+			DOTween.Sequence().InsertCallback(0.3f, ()=> SfxPlayer.Play(SfxType.PoisonEffect));
 		}
 
 		protected override void OnPotionEndAction() {
+			_chromaticAberration.active = false;
+		}
+
+		private void OnDestroy() {
 			_chromaticAberration.active = false;
 		}
 	}

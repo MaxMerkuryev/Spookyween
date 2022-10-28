@@ -38,6 +38,6 @@ namespace SfxSystem {
 		WitchDie,
 		HighJump,
 		WitchReject,
-		
+		PoisonEffect,
 	}
 }

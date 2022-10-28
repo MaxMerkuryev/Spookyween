@@ -34,6 +34,6 @@ namespace SfxSystem {
 		WispTrigger,
 		PuzzleTargetActivate,
 		VampireDie,
-		
+		VampireReject
 	}
 }

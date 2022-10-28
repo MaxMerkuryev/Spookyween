@@ -20,7 +20,10 @@ namespace Vampires {
 		}
 				
 		public override void Pickup(Pickupable pickupable, Vector3[] customPath = null, bool useCustomOrientation = false) {
-			if(!_puzzle.IsActive) return;
+			if (!_puzzle.IsActive) {
+				SfxPlayer.Play(SfxType.VampireReject);
+				return;
+			}
 			
 			Vector3[] path = {
 				Vector3.zero, 

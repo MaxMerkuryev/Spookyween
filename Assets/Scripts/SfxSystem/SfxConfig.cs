@@ -37,5 +37,7 @@ namespace SfxSystem {
 		VampireReject,
 		WitchDie,
 		HighJump,
+		WitchReject,
+		
 	}
 }

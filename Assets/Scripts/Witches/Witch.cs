@@ -19,7 +19,10 @@ namespace Witches {
 		}
 
 		public override void Pickup(Pickupable pickupable, Vector3[] customPath = null, bool useCustomOrientation = false) {
-			if(!_witchsPuzzle.IsActive) return;
+			if (!_witchsPuzzle.IsActive) {
+				SfxPlayer.Play(SfxType.WitchReject);
+				return;
+			}
 			
 			base.Pickup(pickupable, customPath, useCustomOrientation);
 			Enabled = false;

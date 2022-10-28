@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ui;
+using UnityEngine;
 
 namespace SpookifySystem {
 	public class Spookify : MonoBehaviour {
@@ -9,7 +10,8 @@ namespace SpookifySystem {
 		[SerializeField] private AudioClip[] _lofi;
 
 		public bool IsOn { get; private set; }
-		
+		private float timer;
+			
 		private void Awake() {
 			_ambienceSource.clip = _ambience;
 			_ambienceSource.loop = true;
@@ -17,20 +19,28 @@ namespace SpookifySystem {
 		}
 
 		public void Play() {
-			IsOn = true;
 			_lofiSource.clip = _lofi[Random.Range(0, _lofi.Length)];
+			timer = _lofiSource.clip.length + Random.Range(0.1f, 0.5f);
 			_lofiSource.Play();
-			Invoke(nameof(Play), _lofiSource.clip.length + Random.Range(1f, 5f));
+			IsOn = true;
 		}
 
 		public void Stop() {
 			IsOn = false;
 			_lofiSource.Stop();
+			timer = 0f;
 		}
 		
 		public void NextClip() {
 			Stop();
 			Play();
+		}
+
+		private void Update() {
+			if (IsOn) {
+				if (timer > 0) timer -= Time.unscaledDeltaTime;
+				else NextClip();
+			}
 		}
 	}
 }

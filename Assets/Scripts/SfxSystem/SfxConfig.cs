@@ -39,5 +39,6 @@ namespace SfxSystem {
 		HighJump,
 		WitchReject,
 		PoisonEffect,
+		SandsOfTime
 	}
 }

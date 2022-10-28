@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using InteractableSystem;
+using SfxSystem;
 using UnityEngine;
 
 namespace PickupableSystem {
@@ -23,6 +24,7 @@ namespace PickupableSystem {
 
 		public override void Interact() {
 			_particles.Play();
+			SfxPlayer.Play(SfxType.SandsOfTime);
 			foreach (Pickupable item in _items) {
 				item.ResetPickupable();
 			}

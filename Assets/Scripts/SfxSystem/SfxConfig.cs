@@ -33,6 +33,7 @@ namespace SfxSystem {
 		PotionEnd,
 		WispTrigger,
 		PuzzleTargetActivate,
+		VampireDie,
 		
 	}
 }

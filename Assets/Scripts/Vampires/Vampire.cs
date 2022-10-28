@@ -1,6 +1,7 @@
 ﻿using System;
 using DG.Tweening;
 using PickupableSystem;
+using SfxSystem;
 using UnityEngine;
 
 namespace Vampires {
@@ -29,6 +30,7 @@ namespace Vampires {
 			
 			base.Pickup(pickupable, path, useCustomOrientation);
 			Enabled = false;
+			SfxPlayer.Play(SfxType.VampireDie);
 			DOTween.Sequence().InsertCallback(0.25f, () => {
 				Die();
 				_puzzle.OnKillVampire();

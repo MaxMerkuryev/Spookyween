@@ -41,6 +41,8 @@ namespace SfxSystem {
 		PoisonEffect,
 		SandsOfTime,
 		SkeletonHypnotize,
-		SkeletonInteract
+		SkeletonInteract,
+		SpookifyToggle,
+		SpookifySwitch
 	}
 }

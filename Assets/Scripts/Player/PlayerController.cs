@@ -171,6 +171,7 @@ namespace Player {
 		public void EnablePumpkinEffect() {
 			_gravityFactor = 0.1f;
 			_jumped = true;
+			SfxPlayer.Play(SfxType.HighJump);
 		}
 
 		public void DisablePumpkinEffect() {

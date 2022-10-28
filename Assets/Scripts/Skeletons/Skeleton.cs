@@ -1,5 +1,6 @@
 ﻿using InteractableSystem;
 using PickupableSystem;
+using SfxSystem;
 using UnityEngine;
 
 namespace Skeletons {
@@ -17,7 +18,7 @@ namespace Skeletons {
 		
 		public override void Interact() {
 			if (_hypnotized) return;
-			
+			SfxPlayer.Play(SfxType.SkeletonInteract);
 			if (CurrentPickupable) {
 				if(_puzzle.IsActive) Hypnotize();
 				return;
@@ -32,6 +33,7 @@ namespace Skeletons {
 			_handLight.enabled = false;
 			_puzzle.SkeletonHypnotized();
 			Enabled = false;
+			SfxPlayer.Play(SfxType.SkeletonHypnotize);
 			(CurrentPickupable as SkeletonPickupable).Hypnotize();
 		}
 	}

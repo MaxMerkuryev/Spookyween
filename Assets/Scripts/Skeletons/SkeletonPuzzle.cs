@@ -23,12 +23,5 @@ namespace Skeletons {
 		private void Awake() {
 			foreach(Skeleton skeleton in _skeletons) skeleton.Init(this);
 		}
-
-		private void Update() {
-			if (Input.GetKeyDown(KeyCode.R)) {
-				_count = 10;
-				SkeletonHypnotized();
-			}
-		}
 	}
 }

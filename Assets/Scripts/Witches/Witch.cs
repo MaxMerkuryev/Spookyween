@@ -1,6 +1,6 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using PickupableSystem;
+using SfxSystem;
 using UnityEngine;
 using Vampires;
 
@@ -23,6 +23,7 @@ namespace Witches {
 			
 			base.Pickup(pickupable, customPath, useCustomOrientation);
 			Enabled = false;
+			SfxPlayer.Play(SfxType.WitchDie);
 			DOTween.Sequence().InsertCallback(0.3f, () => {
 				_fire.SetActive(true);
 				_particles.Stop();

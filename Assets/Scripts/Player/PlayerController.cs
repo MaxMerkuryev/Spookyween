@@ -1,3 +1,4 @@
+using Settings;
 using SfxSystem;
 using Ui;
 using UnityEngine;
@@ -13,6 +14,8 @@ namespace Player {
 
 		[Header("LOOK")]
 		[SerializeField] private float _lookSensitivity = 5f;
+
+		[SerializeField] private Setting _sensitivitySetting;
 		[SerializeField] private Transform _cameraHolder;
 
 		[Header("BODY")]
@@ -111,8 +114,8 @@ namespace Player {
 		}
 		
 		private void HandleCameraInput() {
-			_cameraInput.x -= Input.GetAxis("Mouse Y") * _lookSensitivity;
-			_cameraInput.y += Input.GetAxis("Mouse X") * _lookSensitivity;
+			_cameraInput.x -= Input.GetAxis("Mouse Y") * _sensitivitySetting.CurrentValue;// _lookSensitivity;
+			_cameraInput.y += Input.GetAxis("Mouse X") * _sensitivitySetting.CurrentValue;//_lookSensitivity;
 			
 			_cameraInput.x = Mathf.Clamp(_cameraInput.x, -90f, 90f);
 		}

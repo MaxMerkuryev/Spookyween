@@ -601,6 +601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1025728294922219622}
+  - component: {fileID: 8774608020942898166}
   m_Layer: 5
   m_Name: SettingUi
   m_TagString: Untagged
@@ -630,6 +631,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 714.2768, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8774608020942898166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304115994752735593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0cb4c1a27e34e79a12f3a3aacd1dd56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _setting: {fileID: 0}
+  _slider: {fileID: 8125341524143392823}
+  _minValue: {fileID: 540805370706032695}
+  _maxValue: {fileID: 863317969427160852}
+  _currentValue: {fileID: 2302811231769138927}
+  _format: 0
 --- !u!1 &8339081628073573537
 GameObject:
   m_ObjectHideFlags: 0

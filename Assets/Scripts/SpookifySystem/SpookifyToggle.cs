@@ -13,6 +13,7 @@ namespace SpookifySystem {
 
 		public override void Interact() {
 			SfxPlayer.Play(SfxType.SpookifyToggle);
+			SfxPlayer.Play(SfxType.SpookifySwitch);
 			if (_spookify.IsOn) {
 				_spookify.Stop();
 			} else {

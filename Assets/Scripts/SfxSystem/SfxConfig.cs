@@ -43,6 +43,7 @@ namespace SfxSystem {
 		SkeletonHypnotize,
 		SkeletonInteract,
 		SpookifyToggle,
-		SpookifySwitch
+		SpookifySwitch,
+		Cauldron
 	}
 }

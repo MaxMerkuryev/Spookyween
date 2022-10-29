@@ -2,6 +2,7 @@
 using DG.Tweening;
 using InteractableSystem;
 using PickupableSystem;
+using SfxSystem;
 using UnityEngine;
 
 namespace Alchemy {
@@ -45,6 +46,8 @@ namespace Alchemy {
 			_innerHolderB.Pickup(pickupableB, pathB);
 			PotionType potionType = AlchemyData.GetPotion(pickupableA as Ingredient, pickupableB as Ingredient);
 
+			SfxPlayer.Play(SfxType.Cauldron);
+			
 			DOTween.Sequence().InsertCallback(1f, () => {
 				ResetPickupables();
 				CreatePotion(potionType);

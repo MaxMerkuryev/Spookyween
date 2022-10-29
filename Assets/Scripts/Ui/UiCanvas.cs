@@ -10,7 +10,6 @@ namespace Ui {
 		public enum State {
 			Play,
 			Pause,
-			Menu
 		}
 
 		private Dictionary<State, UiMenu> _menus;
@@ -25,7 +24,7 @@ namespace Ui {
 		private void Awake() {
 			_menus = new Dictionary<State, UiMenu>() { 
 				{ State.Play, _hud }, 
-				{ State.Pause, _pause} 
+				{ State.Pause, _pause},
 			};
 
 			foreach (KeyValuePair<State, UiMenu> menu in _menus) {
@@ -54,7 +53,6 @@ namespace Ui {
 			Cursor.lockState = CursorLockMode.None;
 		}
 		
-		// i hate switch
 		private void Update() {
 			bool pauseKeyDown = Input.GetKeyDown(KeyCode.Escape);
 
@@ -69,8 +67,6 @@ namespace Ui {
 						break;
 					case State.Pause:
 						SetState(State.Play);
-						break;
-					case State.Menu:
 						break;
 					default:
 						break;

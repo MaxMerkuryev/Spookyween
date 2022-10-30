@@ -15,7 +15,7 @@ namespace SfxSystem {
 		public static void Play(SfxType sfxType) {
 			_playAction?.Invoke(sfxType);
 		}
-
+		
 		private void Awake() {
 			for (int i = 0; i < _poolSize; i++) {
 				Sfx sfx = Instantiate(_sfxPrefab);

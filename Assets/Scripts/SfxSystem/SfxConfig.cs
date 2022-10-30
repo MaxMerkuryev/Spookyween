@@ -44,6 +44,7 @@ namespace SfxSystem {
 		SkeletonInteract,
 		SpookifyToggle,
 		SpookifySwitch,
-		Cauldron
+		Cauldron,
+		Final
 	}
 }

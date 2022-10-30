@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1245140238675101910}
   - component: {fileID: 2803626997753399155}
   - component: {fileID: 75589979586802617}
+  - component: {fileID: 1630262372847566424}
   m_Layer: 0
   m_Name: EA_Bld_Obelisk_2b_PRE
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1630262372847566424
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876999250730422892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8934995168320300203, guid: 48d0d1d339c61084581c393de929aa6a, type: 3}

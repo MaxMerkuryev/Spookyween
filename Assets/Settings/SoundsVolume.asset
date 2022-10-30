@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SoundsVolume
   m_EditorClassIdentifier: 
   _name: SoundsVolume
-  _minValue: -80
-  _maxValue: 0
-  _defaultValue: -4
+  _minValue: 0
+  _maxValue: 100
+  _defaultValue: 80

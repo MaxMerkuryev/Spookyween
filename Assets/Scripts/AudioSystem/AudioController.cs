@@ -11,6 +11,10 @@ namespace AudioSystem {
 		[SerializeField] private string _soundsVolumeName;
 		[SerializeField] private string _musicVolumeName;
 
+		private const float _audioMixerMinValue = -25f;
+		private const float _audioMixerMaxValue = 0f;
+		private const float _audioMixerThreshold = -80f;
+		
 		private void Start() {
 			UpdateSoundsVolume();
 			UpdateMusicVolume();
@@ -27,11 +31,16 @@ namespace AudioSystem {
 		}
 
 		private void UpdateSoundsVolume() {
-			_mixer.SetFloat(_soundsVolumeName, _soundsVolumeSetting.CurrentValue);
+			_mixer.SetFloat(_soundsVolumeName, GetVolumeValue(_soundsVolumeSetting.CurrentValue));
 		}
 		
 		private void UpdateMusicVolume() {
-			_mixer.SetFloat(_musicVolumeName, _musicVolumeSetting.CurrentValue);
+			_mixer.SetFloat(_musicVolumeName, GetVolumeValue(_musicVolumeSetting.CurrentValue));
+		}
+
+		private float GetVolumeValue(float settingValue) {
+			if (settingValue <= 0) return _audioMixerThreshold;
+			return Mathf.Lerp(_audioMixerMinValue, _audioMixerMaxValue, settingValue / 100);
 		}
 	}
 }

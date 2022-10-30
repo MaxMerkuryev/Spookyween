@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MusicVolume
   m_EditorClassIdentifier: 
   _name: MusicVolume
-  _minValue: -80
-  _maxValue: 0
-  _defaultValue: -10
+  _minValue: 0
+  _maxValue: 100
+  _defaultValue: 90

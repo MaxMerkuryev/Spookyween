@@ -1,12 +1,13 @@
 using Settings;
 using SfxSystem;
+using Spookyween.Player.Footsteps;
 using Ui;
 using UnityEngine;
 
 namespace Player {
-	public class PlayerController : Lockable {
-		public bool IsWalkin => _grounded && _player.velocity.magnitude > 1f;
-		
+	public class PlayerController : MonoBehaviour, IFootstepsProvider {
+		[SerializeField] private FootstepsSoundPlayer _footstepsSoundPlayer;
+				
 		[Header("CAMERA BOB")]
 		[SerializeField] private float _amplitude = 0.01f;
 		[SerializeField] private float _frequency = 15f;
@@ -47,7 +48,7 @@ namespace Player {
 
 		private const float _toggleSpeed = 3f;
 
-		public static Vector3 CAMERA_POSITION;
+		public Vector3 CameraPosition => _cameraHolder.position;
 		
 		private Vector3 CameraMotion => new() {
 			y = _poisonFactor > 0 ? 0f : Mathf.Sin(Time.time * _frequency) * _amplitude,
@@ -56,13 +57,13 @@ namespace Player {
 		
 		private float HorizontalSpeed => new Vector3(_player.velocity.x,0f, _player.velocity.z).magnitude;
 
-		
+		// todo: change to Init()
 		private void Awake() {
+			_footstepsSoundPlayer.Init(this);
+
 			_playerHeight = _playerCollider.height / 2f + _groundCheckRayOffset;
 			_sphereRadius = _playerCollider.radius - _groundCheckSphereOffset;
 			_currentSpeed = _speed;
-			
-			Application.targetFrameRate = 75; // it shouldn't be here
 		}
 
 		private void MoveCamera() {
@@ -85,7 +86,7 @@ namespace Player {
 			_camera.localRotation = Quaternion.identity;
 		}
 		
-		protected override void OnUpdate() {
+		private void Update() {
 			HandleCameraInput();
 			HandleMovementInput();
 			HandleJumpInput();
@@ -93,10 +94,9 @@ namespace Player {
 
 			ResetCamera();
 			MoveCamera();
-			CAMERA_POSITION = _cameraHolder.position;
 		}
 		
-		protected override void OnFixedUpdate() {
+		private void FixedUpdate() {
 			CheckGround();
 			MovePlayer();
 			ApplyAirDrag();
@@ -104,7 +104,7 @@ namespace Player {
 			ApplyJump();
 		}
 
-		protected override void OnLateUpdate() {
+		private void LateUpdate() {
 			RotateCamera();
 		}
 
@@ -187,6 +187,14 @@ namespace Player {
 
 		public void DisablePoisonEffect() {
 			_poisonFactor = 0f;
+		}
+
+		bool IFootstepsProvider.CanPlay() {
+			return _grounded && _player.velocity.magnitude > 1f;
+		}
+
+		bool IFootstepsProvider.IsRunning() {
+			return _currentSpeed == _speedRun;
 		}
 	}
 }

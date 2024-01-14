@@ -6,6 +6,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 namespace DefaultNamespace {
+	// todo: DELETE!!!
 	public class FinalThing : MonoBehaviour {
 		[SerializeField] private GameObject _player;
 		[SerializeField] private GameObject _mainUi;

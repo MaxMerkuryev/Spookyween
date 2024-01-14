@@ -2,6 +2,7 @@
 using UnityEngine;
 
 namespace Alchemy.Ingredients {
+	// todo: move into generic animation component
 	public class EyeIngredientAnimation : MonoBehaviour {
 		private void Awake() => Rotate();
 		private void Rotate() => transform

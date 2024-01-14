@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Alchemy.Ingredients;
+using Alchemy.Potions;
 using DG.Tweening;
 using InteractableSystem;
 using PickupableSystem;
@@ -15,6 +18,7 @@ namespace Alchemy {
 		[SerializeField] private Transform _potionSpawn;
 		[SerializeField] private Potion _potionPrefab;
 		[SerializeField] private ParticleSystem _createPotionEffect;
+		[SerializeField] private PotionMixConfig _mixConfig;
 
 		private Potion _currentPotion;
 
@@ -23,7 +27,17 @@ namespace Alchemy {
 		public override string ActionName => "cauldron";
 		public override InteractionType InteractionType => InteractionType.Click;
 		public override InteractionKeyType KeyType => Enabled ? InteractionKeyType.Default : InteractionKeyType.None;
-		
+
+		public event Action Mixed;
+
+		public void Add(IngredientType ingredient) {
+
+		}
+
+		public void Remove(IngredientType ingredient) {
+
+		}
+
 		public override void Interact() {
 			if(_currentPotion != null || _holderA.CurrentPickupable == null || _holderB.CurrentPickupable == null) return;
 
@@ -44,7 +58,7 @@ namespace Alchemy {
 			
 			_innerHolderA.Pickup(pickupableA, pathA);
 			_innerHolderB.Pickup(pickupableB, pathB);
-			PotionType potionType = AlchemyData.GetPotion(pickupableA as Ingredient, pickupableB as Ingredient);
+			PotionType potionType = _mixConfig.GetMixResult(pickupableA as Ingredient, pickupableB as Ingredient);
 
 			SfxPlayer.Play(SfxType.Cauldron);
 			
